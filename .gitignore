@@ -1,0 +1,10 @@
+.config/tmux/plugins/**
+.config/fcitx5/conf/cached_layouts
+.config/fcitx5/conf/notifications.conf
+.config/fcitx5/conf/rime.conf
+.config/fcitx5/config
+.config/fcitx5/profile
+.config/systemd/**
+.config/zsh/.zcompdump
+bin/Config.toml
+.config/mpd/database
