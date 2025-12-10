@@ -1,0 +1,51 @@
+* {
+    background-image: none;
+    box-shadow: none;
+}
+
+window {
+    background-color: rgba(30, 30, 46, 0.5);
+}
+
+button {
+    border-color: #A7C080;
+    text-decoration-color: #A7C080;
+    color: #D3C6AA;
+    background-color: #232A2E;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: 50% 45%;
+    background-size: 18%;
+    margin: 13px;
+}
+
+button:focus, button:active, button:hover {
+    background-color: #343F44;
+    outline-style: none;
+}
+
+#lock {
+    background-image: url("/home/yanagi/.config/wlogout/icons/lock.svg");
+}
+
+#logout {
+    background-image: url("/home/yanagi/.config/wlogout/icons/logout.svg");
+}
+
+#suspend {
+    background-image: url("/home/yanagi/.config/wlogout/icons/suspend.svg");
+}
+
+#hibernate {
+    background-image: url("/home/yanagi/.config/wlogout/icons/hibernate.svg");
+}
+
+#shutdown {
+    background-image: url("/home/yanagi/.config/wlogout/icons/shutdown.svg");
+}
+
+#reboot {
+    background-image: url("/home/yanagi/.config/wlogout/icons/reboot.svg");
+}

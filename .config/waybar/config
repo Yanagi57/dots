@@ -1,0 +1,67 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 40,
+  "margin-top": 8,
+  "margin-left": 12,
+  "margin-right": 12,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu", "custom/nvme_temp", "cpu", "memory", "pulseaudio", "network", "tray"],
+
+  "clock": {
+    "format": "  {:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%A | %d %B %Y}"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}G"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": ["","",""],
+    "on-click": "pavucontrol"
+  },
+
+  "custom/cpu_temp": {
+    "exec": "sensors k10temp-pci-00c3 | grep Tctl | awk '{print $2}'",
+    "interval": 5,
+    "format": "CPU: {}",
+    "format-icons": {
+        "CPU": ""
+    }
+  },
+
+  "custom/nvme_temp": {
+    "exec": "sensors nvme-pci-0200 | grep 'Composite' | awk '{print $2}'",
+    "interval": 10,
+    "format": "SSD: {}",
+    "format-icons": {
+        "SSD": ""
+    }
+  },
+  "custom/nvidia_gpu": {
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+    "interval": 5,
+    "format": "GPU: {}°C",
+    "format-icons": {
+        "GPU": ""
+    }
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{essid} @ {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}

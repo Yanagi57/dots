@@ -1,0 +1,13 @@
+show=drun
+width=600
+height=550
+always_parse_args=true
+show_all=true
+term=foot
+hide_scroll=false
+print_command=true
+insensitive=true
+prompt=Search
+columns=1
+key_expand=Tab
+no_actions=true
