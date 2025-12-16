@@ -9,7 +9,7 @@ read -p "This will install and configure your system. Proceed? (y/n) " confirm
 
 # Install hyprland
 sudo pacman -S --needed hyprland wofi waybar libnotify ly kitty openssh thunar thunar-volman gvfs udisks2 stow rustup yazi --noconfirm
-sudo systemctl enable ly.service
+sudo systemctl enable ly@tty2.service
 # Redirect ly-session.log to cache
 echo "session_log = $HOME/.cache/ly-session.log" | sudo tee -a /etc/ly/config.ini
 
