@@ -60,7 +60,7 @@ else
 fi
 
 # Apps
-paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard ripgrep xh pavucontrol
+paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard ripgrep xh pavucontrol mpv
 
 # Fonts & Text
 paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git 
