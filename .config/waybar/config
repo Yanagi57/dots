@@ -8,8 +8,16 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "pulseaudio", "network", "tray"],
-
+  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "pulseaudio", "network", "idle_inhibitor", "tray"],
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "Caffeine {status}",
+    "tooltip-format-deactivated": "Caffeine {status}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
   "clock": {
     "format": "  {:%H:%M}",
     "tooltip": true,
