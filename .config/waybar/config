@@ -19,8 +19,11 @@
     }
   },
   "mpris": {
-	"format": "▶ {dynamic}",
+	"format": "{player-icon} {dynamic}",
 	"format-paused": " <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶"
+    }
   },
   "clock": {
     "format": "  {:%H:%M}",
@@ -37,7 +40,7 @@
   "custom/nvidia_gpu": {
     "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
     "interval": 5,
-    "format": " {text}%",
+    "format": "  {text}%"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -49,18 +52,18 @@
   "custom/cpu_temp": {
     "exec": "sensors k10temp-pci-00c3 | grep Tctl | awk '{print $2}'",
     "interval": 5,
-    "format": " {text}",
+    "format": " {text}"
   },
 
   "custom/nvme_temp": {
     "exec": "sensors nvme-pci-0200 | grep 'Composite' | awk '{print $2}'",
     "interval": 10,
-    "format": " {text}",
+    "format": " {text}"
   },
   "custom/nvidia_gpu_temp": {
     "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
     "interval": 5,
-    "format": " {text}°C",
+    "format": "  {text}°C"
   },
   "network": {
     "format-wifi": "  {signalStrength}%",

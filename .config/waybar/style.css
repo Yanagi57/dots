@@ -48,7 +48,7 @@ window#waybar {
 }
 
 #custom-cpu_temp:hover, #custom-nvidia_gpu:hover, #custom-nvme_temp:hover,
-#custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover
+#custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover,
 #cpu:hover, #memory:hover, #battery:hover,#mpris:hover,
 #pulseaudio:hover, #network:hover {
   background: rgba(167,192,128,0.18);
