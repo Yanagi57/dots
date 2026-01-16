@@ -21,6 +21,7 @@
   "mpris": {
 	"format": "{player-icon} {dynamic}",
 	"format-paused": " <i>{dynamic}</i>",
+    "max-length": 30,
     "player-icons": {
       "default": "▶"
     }
