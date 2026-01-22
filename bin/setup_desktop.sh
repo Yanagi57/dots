@@ -63,7 +63,7 @@ fi
 paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard ripgrep xh pavucontrol mpv
 
 # Fonts & Text
-paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git 
+paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto noto-fonts noto-fonts-cjk ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git 
 
 # Required apps
 paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji everforest-gtk-theme-git
