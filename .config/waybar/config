@@ -20,10 +20,14 @@
   },
   "mpris": {
 	"format": "{player-icon} {dynamic}",
-	"format-paused": " <i>{dynamic}</i>",
+	"format-paused": "{status_icon} <i>{dynamic}</i>",
+    "ignored-players": ["firefox"],
     "max-length": 30,
     "player-icons": {
       "default": "▶"
+    },
+    "status-icons": {
+      "paused": ""
     }
   },
   "clock": {
