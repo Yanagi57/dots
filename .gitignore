@@ -13,5 +13,11 @@
 .config/nwg-look/
 .config/pulse/
 .config/xfce4/
+.config/JetBrains/
+.config/github-copilot/
+.config/gtk-3.0/bookmarks
+.config/java/
+.config/mimeapps.list
+.config/pavucontrol.ini
 bin/Config.toml
 .config/mpd/database
