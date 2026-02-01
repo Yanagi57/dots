@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo rfkill block bluetooth
+
 sudo systemctl disable bluetooth.service
 sudo systemctl stop bluetooth.service
 echo "Bluetooth service has been disabled and stopped."
