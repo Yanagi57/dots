@@ -8,7 +8,7 @@
 
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "pulseaudio", "network", "idle_inhibitor", "tray"],
+  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "tray"],
   "idle_inhibitor": {
     "format": "{icon}",
     "tooltip-format-activated": "Caffeine {status}",
@@ -30,6 +30,15 @@
       "paused": ""
     }
   },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {num_connections}",
+    "format-disabled": " off",
+    "tooltip-format": "{controller_alias}\n{controller_address}",
+    "on-click": "blueman-manager",
+    "on-click-right": "bash -c 'bluetoothctl show | grep -q \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on'"
+  },
+
   "clock": {
     "format": "  {:%H:%M}",
     "tooltip": true,
