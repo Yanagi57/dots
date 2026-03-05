@@ -82,3 +82,5 @@ eval "$(mise activate zsh)"
 # ===== Conda =====
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
+export LC_TIME=en_DK.UTF-8
