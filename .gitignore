@@ -17,6 +17,8 @@
 .config/github-copilot/
 .config/gtk-3.0/bookmarks
 .config/java/
+.config/chromium/
+.config/qalculate/
 .config/mimeapps.list
 .config/pavucontrol.ini
 bin/Config.toml
