@@ -27,6 +27,7 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export XPROFILE="$XDG_CONFIG_HOME/x11/xprofile"
 export XRESOURCES="$XDG_CONFIG_HOME/x11/xresources"
 
+[ -d "$XDG_CONFIG_HOME/git" ] || mkdir -p "$XDG_CONFIG_HOME/git"
 [ -d "$XDG_CONFIG_HOME/gtk-2.0" ] || mkdir -p "$XDG_CONFIG_HOME/gtk-2.0"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" # gtk 3 & 4 are XDG compliant
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
