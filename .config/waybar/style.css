@@ -39,7 +39,7 @@ window#waybar {
 /* Right side modules */
 #custom-cpu_temp, #custom-nvidia_gpu, #custom-nvme_temp,
 #custom-nvidia_gpu_temp, #mpris, #bluetooth,
-#cpu, #memory, #battery, #pipewire, #network, #tray, #idle_inhibitor {
+#cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor {
   background: rgba(211,198,170,0.06);
   padding: 2px 8px;
   margin: 2px;
@@ -50,13 +50,13 @@ window#waybar {
 #custom-cpu_temp:hover, #custom-nvidia_gpu:hover, #custom-nvme_temp:hover,
 #custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover,#bluetooth:hover,
 #cpu:hover, #memory:hover, #battery:hover,#mpris:hover,
-#pipewire:hover, #network:hover {
+#pulseaudio:hover, #network:hover {
   background: rgba(167,192,128,0.18);
   box-shadow: 0 0 8px rgba(167,192,128,0.35);
 }
 
 /* Muted volume */
-#pipewire.muted {
+#pulseaudio.muted {
   background: rgba(230,126,128,0.15);
   color: #e67e80;
 }
