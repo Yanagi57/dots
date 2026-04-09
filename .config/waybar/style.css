@@ -7,30 +7,30 @@
 
 /* Main bar */
 window#waybar {
-  background: rgba(50, 55, 60, 0.7);
+  background: rgba(34, 34, 34, 0.85);
   box-shadow: 0 8px 30px rgba(0,0,0,0.45);
-  color: #d3c6aa; /* everforest foreground */
+  color: #F5F5F5;
 }
 
 /* Workspace pills */
 #workspaces button {
-  background: rgba(211,198,170,0.07);
+  background: rgba(245,245,245,0.05);
   margin: 2px;
   padding: 2px 8px;
   border-radius: 12px;
-  color: #d3c6aa;
+  color: #BBBBBB;
 }
 
 #workspaces button.active {
-  background: linear-gradient(135deg, #a7c080, #83c092);
-  color: #2f383e;
-  box-shadow: 0 0 10px rgba(167,192,128,0.45);
+  background: linear-gradient(135deg, #FFD700, #C9A800);
+  color: #222222;
+  box-shadow: 0 0 10px rgba(255,215,0,0.4);
 }
 
-/* Clock = forest gem */
+/* Clock */
 #clock {
-  background: linear-gradient(135deg, #83c092, #a7c080);
-  color: #2b3339;
+  background: linear-gradient(135deg, #FFD700, #C9A800);
+  color: #222222;
   padding: 2px 8px;
   border-radius: 14px;
   font-weight: 600;
@@ -40,7 +40,7 @@ window#waybar {
 #custom-cpu_temp, #custom-nvidia_gpu, #custom-nvme_temp,
 #custom-nvidia_gpu_temp, #mpris, #bluetooth,
 #cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor {
-  background: rgba(211,198,170,0.06);
+  background: rgba(245,245,245,0.05);
   padding: 2px 8px;
   margin: 2px;
   border-radius: 14px;
@@ -51,12 +51,12 @@ window#waybar {
 #custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover,#bluetooth:hover,
 #cpu:hover, #memory:hover, #battery:hover,#mpris:hover,
 #pulseaudio:hover, #network:hover {
-  background: rgba(167,192,128,0.18);
-  box-shadow: 0 0 8px rgba(167,192,128,0.35);
+  background: rgba(255,215,0,0.15);
+  box-shadow: 0 0 8px rgba(255,215,0,0.3);
 }
 
 /* Muted volume */
 #pulseaudio.muted {
-  background: rgba(230,126,128,0.15);
-  color: #e67e80;
+  background: rgba(255,85,85,0.15);
+  color: #FF5555;
 }

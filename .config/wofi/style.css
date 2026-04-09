@@ -1,9 +1,9 @@
-@define-color accent #A7C080;
-@define-color txt #D3C6AA;
-@define-color text-highlight #DBBC7F;
-@define-color bg #2B3339;
-@define-color bg2 #333C43;
-@define-color input-border #DBBC7F;
+@define-color accent #FFD700;
+@define-color txt #F5F5F5;
+@define-color text-highlight #FFD700;
+@define-color bg #222222;
+@define-color bg2 #2A2A2A;
+@define-color input-border #FFD700;
 * {
   font-family: 'MesloLGL Nerd Font Mono';
   font-size: 14px;
@@ -121,6 +121,5 @@ window {
 
 #entry:drop(active) {
   background-color: @bg2 !important;
-  border-radius: 5px!important; 
+  border-radius: 5px!important;
 }
-
