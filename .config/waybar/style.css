@@ -39,7 +39,8 @@ window#waybar {
 /* Right side modules */
 #custom-cpu_temp, #custom-nvidia_gpu, #custom-nvme_temp,
 #custom-nvidia_gpu_temp, #mpris, #bluetooth,
-#cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor {
+#cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor,
+#custom-power_profile {
   background: rgba(245,245,245,0.05);
   padding: 2px 8px;
   margin: 2px;
@@ -50,9 +51,22 @@ window#waybar {
 #custom-cpu_temp:hover, #custom-nvidia_gpu:hover, #custom-nvme_temp:hover,
 #custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover,#bluetooth:hover,
 #cpu:hover, #memory:hover, #battery:hover,#mpris:hover,
-#pulseaudio:hover, #network:hover {
+#pulseaudio:hover, #network:hover, #custom-power_profile:hover {
   background: rgba(255,215,0,0.15);
   box-shadow: 0 0 8px rgba(255,215,0,0.3);
+}
+
+/* Power profile states */
+#custom-power_profile.performance {
+  color: #FFD700;
+}
+
+#custom-power_profile.power-saver {
+  color: #4DD9C0;
+}
+
+#custom-power_profile.balanced {
+  color: #F5F5F5;
 }
 
 /* Muted volume */

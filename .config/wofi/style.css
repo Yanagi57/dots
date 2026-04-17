@@ -67,7 +67,7 @@ window {
 
 /* Input */
 #input {
-  margin: 30px 30px 5px;
+  margin: 10px 10px 5px;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -122,4 +122,12 @@ window {
 #entry:drop(active) {
   background-color: @bg2 !important;
   border-radius: 5px!important;
+}
+
+scrollbar,
+scrollbar slider {
+  min-width: 0;
+  min-height: 0;
+  background: transparent;
+  opacity: 0;
 }
