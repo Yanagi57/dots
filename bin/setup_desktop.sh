@@ -69,6 +69,10 @@ paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-ser
 # Required apps
 paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji python-gobject
 
+# Locale en_GB for waybar clock
+echo "en_GB.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
+sudo locale-gen
+
 # Dev
 sudo pacman -S mise
 
