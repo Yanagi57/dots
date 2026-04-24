@@ -13,6 +13,23 @@
 @define-color theme_selected_bg_color #FFD700;
 @define-color theme_selected_fg_color #222222;
 
+/* @define-color doesn't override resolved theme vars — use explicit rules */
+*:selected,
+*:selected:focus {
+  background-color: #FFD700;
+  color: #222222;
+}
+
+treeview row:selected,
+treeview row:selected:focus,
+.sidebar row:selected,
+.sidebar row:selected:focus,
+iconview:selected,
+iconview:selected:focus {
+  background-color: #FFD700;
+  color: #222222;
+}
+
 /* Tooltips */
 @define-color theme_tooltip_bg_color #333333;
 @define-color theme_tooltip_fg_color #F5F5F5;
