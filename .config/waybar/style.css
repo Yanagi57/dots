@@ -69,6 +69,24 @@ window#waybar {
   color: #F5F5F5;
 }
 
+/* Battery states */
+#battery.charging {
+  color: #4DD9C0;
+}
+
+#battery.warning {
+  color: #FFB86C;
+}
+
+#battery.critical {
+  color: #FF5555;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { color: transparent; }
+}
+
 /* Muted volume */
 #pulseaudio.muted {
   background: rgba(255,85,85,0.15);

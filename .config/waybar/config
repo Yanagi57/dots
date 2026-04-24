@@ -8,7 +8,7 @@
 
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "pulseaudio", "bluetooth", "network", "custom/power_profile", "idle_inhibitor", "tray"],
+  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "battery", "pulseaudio", "bluetooth", "network", "custom/power_profile", "idle_inhibitor", "tray"],
   "idle_inhibitor": {
     "format": "{icon}",
     "tooltip-format-activated": "Caffeine {status}",
@@ -83,6 +83,18 @@
     "interval": 5,
     "format": "  {text}°C"
   },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}"
+  },
+
   "network": {
     "format-wifi": "  {signalStrength}%",
     "format-ethernet": "󰈀",
