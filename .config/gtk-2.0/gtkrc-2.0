@@ -1,8 +1,8 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/yanagi/.gtkrc-2.0.mine"
-gtk-theme-name="Everforest-Yellow-Dark"
+include "/home/hr/.gtkrc-2.0.mine"
+gtk-theme-name="Adwaita"
 gtk-icon-theme-name="Adwaita"
 gtk-font-name="Adwaita Sans 11"
 gtk-cursor-theme-name="default"

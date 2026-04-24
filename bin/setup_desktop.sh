@@ -79,4 +79,8 @@ sudo pacman -S mise
 # PulseAudio config for hyprland
 echo "cookie-file = $HOME/.config/pulse/cookie" | sudo tee -a /etc/pulse/client.conf
 
+# GTK dark mode
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
+
 echo "\n\nDone, enjoy your new system\n\n"

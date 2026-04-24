@@ -1,0 +1,148 @@
+/* black-gold GTK3 theme overrides
+ * Loaded as user CSS on top of Adwaita-dark.
+ * @define-color variables are referenced throughout Adwaita's CSS.
+ */
+
+/* Base backgrounds */
+@define-color theme_bg_color #222222;
+@define-color theme_base_color #2A2A2A;
+@define-color theme_text_color #F5F5F5;
+@define-color theme_fg_color #F5F5F5;
+
+/* Selection: gold */
+@define-color theme_selected_bg_color #FFD700;
+@define-color theme_selected_fg_color #222222;
+
+/* Tooltips */
+@define-color theme_tooltip_bg_color #333333;
+@define-color theme_tooltip_fg_color #F5F5F5;
+
+/* Disabled */
+@define-color insensitive_bg_color #2A2A2A;
+@define-color insensitive_fg_color #777777;
+@define-color insensitive_base_color #2A2A2A;
+
+/* Borders */
+@define-color borders #3D3D3D;
+@define-color unfocused_borders #3D3D3D;
+
+/* Headerbar */
+@define-color theme_header_background #2A2A2A;
+@define-color theme_header_foreground #F5F5F5;
+@define-color theme_header_background_light #2A2A2A;
+@define-color theme_header_foreground_light #F5F5F5;
+@define-color theme_header_background_backdrop #222222;
+
+/* Semantic */
+@define-color success_color #4DD9C0;
+@define-color warning_color #FFB86C;
+@define-color error_color #FF5555;
+@define-color link_color #4DD9C0;
+@define-color visited_link_color #2AA38E;
+
+/* Direct widget overrides (belt-and-suspenders for apps that don't use variables) */
+window, .background {
+  background-color: #222222;
+  color: #F5F5F5;
+}
+
+headerbar, .titlebar {
+  background-color: #2A2A2A;
+  color: #F5F5F5;
+  border-bottom: 1px solid #3D3D3D;
+}
+
+.sidebar {
+  background-color: #222222;
+  color: #F5F5F5;
+  border-right: 1px solid #3D3D3D;
+}
+
+entry {
+  background-color: #2A2A2A;
+  color: #F5F5F5;
+  border: 1px solid #3D3D3D;
+}
+
+entry:focus {
+  border-color: #FFD700;
+}
+
+button {
+  background-color: #2A2A2A;
+  color: #F5F5F5;
+  border: 1px solid #3D3D3D;
+}
+
+button:hover {
+  background-color: #333333;
+  border-color: #FFD700;
+}
+
+button.suggested-action {
+  background-color: #FFD700;
+  color: #222222;
+}
+
+button.suggested-action:hover {
+  background-color: #C9A800;
+}
+
+button.destructive-action {
+  background-color: #FF5555;
+  color: #F5F5F5;
+}
+
+row {
+  background-color: #222222;
+  color: #F5F5F5;
+}
+
+row:hover { background-color: #2A2A2A; }
+row:selected { background-color: #FFD700; color: #222222; }
+
+menu, .menu, .context-menu {
+  background-color: #333333;
+  color: #F5F5F5;
+  border: 1px solid #3D3D3D;
+}
+
+menuitem:hover {
+  background-color: #FFD700;
+  color: #222222;
+}
+
+tooltip {
+  background-color: #333333;
+  color: #F5F5F5;
+}
+
+popover {
+  background-color: #333333;
+  color: #F5F5F5;
+}
+
+scrollbar slider {
+  background-color: #3D3D3D;
+  border-radius: 10px;
+}
+
+scrollbar slider:hover { background-color: #777777; }
+
+notebook > header {
+  background-color: #2A2A2A;
+  border-bottom: 1px solid #3D3D3D;
+}
+
+notebook > header tab:checked {
+  background-color: #222222;
+  color: #FFD700;
+}
+
+notebook > header tab {
+  color: #BBBBBB;
+}
+
+label.dim-label { color: #BBBBBB; }
+*:link { color: #4DD9C0; }
+*:visited { color: #2AA38E; }

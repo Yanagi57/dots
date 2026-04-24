@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=black-gold
+Comment=Black base with gold and teal accents
+
+[X-GNOME-Metatheme]
+GtkTheme=black-gold
+MetacityTheme=black-gold
+IconTheme=Adwaita
+CursorTheme=default
