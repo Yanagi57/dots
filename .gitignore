@@ -16,7 +16,7 @@
 .config/xfce4/
 .config/JetBrains/
 .config/github-copilot/
-.config/git/
+.config/git/**
 .config/gtk-3.0/bookmarks
 .config/java/
 .config/chromium/
