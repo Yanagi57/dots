@@ -8,6 +8,7 @@
 .config/zsh/.zcompdump
 .config/Thunar/
 .config/claude/
+.config/Qt**
 .config/dconf/
 .config/fcitx/
 .config/ibus/
