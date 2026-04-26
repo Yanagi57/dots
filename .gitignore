@@ -9,6 +9,7 @@
 .config/Thunar/
 .config/claude/
 .config/Qt**
+.config/Vial
 .config/dconf/
 .config/fcitx/
 .config/ibus/
