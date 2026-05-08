@@ -9,6 +9,9 @@
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
   "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "battery", "pulseaudio", "bluetooth", "network", "custom/power_profile", "idle_inhibitor", "tray"],
+  "hyprland/workspaces": {
+    "show-special": true
+  },
   "idle_inhibitor": {
     "format": "{icon}",
     "tooltip-format-activated": "Caffeine {status}",
