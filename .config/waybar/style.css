@@ -17,7 +17,7 @@ window#waybar {
   background: rgba(245,245,245,0.05);
   margin: 2px;
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #BBBBBB;
 }
 
@@ -31,8 +31,8 @@ window#waybar {
 #clock {
   background: linear-gradient(135deg, #FFD700, #C9A800);
   color: #222222;
-  padding: 2px 8px;
-  border-radius: 14px;
+  padding: 1px 8px;
+  border-radius: 8px;
   font-weight: 600;
 }
 
@@ -42,9 +42,9 @@ window#waybar {
 #cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor,
 #custom-power_profile {
   background: rgba(245,245,245,0.05);
-  padding: 2px 8px;
+  padding: 1px 7px;
   margin: 2px;
-  border-radius: 14px;
+  border-radius: 8px;
   transition: background-color 150ms ease;
 }
 
