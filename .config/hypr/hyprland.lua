@@ -178,7 +178,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Return",            hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q",                 hl.dsp.window.close())
 hl.bind(mainMod .. " + B",                 hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.exec_cmd("hyprctl dispatch exit"))
+hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.exit())
 hl.bind(mainMod .. " + E",                 hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F",                 hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F",         hl.dsp.window.fullscreen())
