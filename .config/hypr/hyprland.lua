@@ -109,8 +109,7 @@ hl.config({
     },
 })
 
-hEAARHNYh0vEUBRe3Ig6aXchWl2cwnyPiQp6a3ya86pipP8NEyKV8xZCvyLhZC9sUHPolmZC6jvA4t93HqZC9gUzfUJwp9oXZB36oZAczYLsXqOvZBUtgBUtCZBYdthCMDPMpFO00X8ZA4rYZCde4bF8pUglZC7QL7pMJ9qxHas1RIxOCVtfYAlUvL5u0nlZCkv5fdgFjvXRal87hCktD9qPZCOcFB65mngbYRbcvTyBJJZBCEUpdjQkDn0GyS0ScTGnAI2PTBEyZC6ii1odBvxrjWMQvtlzMt5FMlQZDZD
-l.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
 hl.animation({ leaf = "windows",     enabled = true, speed = 7,  bezier = "myBezier" })
 hl.animation({ leaf = "windowsOut",  enabled = true, speed = 7,  bezier = "default",  style = "popin 80%" })
@@ -121,7 +120,6 @@ hl.animation({ leaf = "workspaces",  enabled = true, speed = 6,  bezier = "defau
 
 hl.config({
     dwindle = {
-        pseudotile     = true,
         preserve_split = true,
     },
 })
@@ -180,7 +178,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Return",            hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q",                 hl.dsp.window.close())
 hl.bind(mainMod .. " + B",                 hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.exit())
+hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.exec_cmd("hyprctl dispatch exit"))
 hl.bind(mainMod .. " + E",                 hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F",                 hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F",         hl.dsp.window.fullscreen())
@@ -188,7 +186,8 @@ hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd("hyprctl dispatch dpm
 hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("wofi-calc"))
 hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("wofi-emoji"))
-hl.bind(mainMod .. " + Tab",               hl.dsp.focus({ next = true }))
+hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("hyprctl dispatch cyclenext"))
+hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("pkill waybar; waybar"))
 
 -- Dwindle
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -226,8 +225,8 @@ hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through workspaces
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.exec_cmd("hyprctl dispatch workspace e+1"))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.exec_cmd("hyprctl dispatch workspace e-1"))
 
 -- Move/resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -277,9 +276,9 @@ hl.window_rule({
 hl.window_rule({
     name  = "pip",
     match = { title = "^Picture-in-Picture$" },
-    float = true,
-    blur  = false,
-    pin   = true,
+    float   = true,
+    no_blur = true,
+    pin     = true,
 })
 
 hl.window_rule({
