@@ -29,6 +29,7 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
 local browser     = "zen-browser"
+local home        = os.getenv("HOME")
 
 
 -------------------
@@ -41,7 +42,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("awww-daemon & awww img $HOME/.config/backgrounds/khaled-ali-unsplash.jpg")
     hl.exec_cmd("fcitx5 --replace -d")
-    hl.exec_cmd("nm-applet")
+--    hl.exec_cmd("nm-applet")
 end)
 
 
@@ -51,7 +52,7 @@ end)
 
 hl.env("XCURSOR_SIZE",                 "10")
 hl.env("HYPRCURSOR_SIZE",              "10")
-hl.env("HYPRSHOT_DIR",                 "$HOME/screenshots")
+hl.env("HYPRSHOT_DIR",                 home .. "/screenshots")
 hl.env("QT_IM_MODULE",                 "fcitx")
 hl.env("SDL_IM_MODULE",                "fcitx")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "x11")
