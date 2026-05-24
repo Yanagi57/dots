@@ -27,5 +27,7 @@
 .config/qalculate/
 .config/mimeapps.list
 .config/pavucontrol.ini
+.config/LM**
+.config/.lm**
 bin/Config.toml
 .config/mpd/database

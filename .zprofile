@@ -48,7 +48,8 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
-mkdir -p "$XDG_CACHE_HOME/java-tmp"
+
+[ -d "$XDG_CACHE_HOME/java-tmp" ] || mkdir -p "$XDG_CACHE_HOME/java-tmp"
 export _JAVA_OPTIONS="-Dlanguageserver.boot.symbolCacheDir=$XDG_CACHE_HOME/sts4/symbolCache -Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Djava.io.tmpdir=$XDG_CACHE_HOME/java-tmp -Dlanguageserver.boot.symbolCacheDir=$XDG_CACHE_HOME/sts4/symbolCache"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export MAVEN_OPTS="-Dmaven.repo.local=$XDG_DATA_HOME/maven/repository"
@@ -86,9 +87,12 @@ export LESS_TERMCAP_ue="$(printf '%b' '␛[0m')"
 
 export PATH="$PATH:$CARGO_HOME/bin"
 
-# Ollama
-[ -d "$XDG_DATA_HOME/ollama-models" ] || mkdir -p "$XDG_DATA_HOME/ollama-models"
-export OLLAMA_MODELS="$XDG_DATA_HOME/ollama-models"
+# Hugging Face
+[ -d "$XDG_CACHE_HOME/huggingface/hub" ] || mkdir -p "$XDG_CACHE_HOME/huggingface/hub"
+export HF_HOME="$XDG_CACHE_HOME/huggingface"
+export HF_HUB_CACHE="$XDG_CACHE_HOME/huggingface/hub"
+export HF_HUB_OFFLINE=1
+export HF_HUB_DISABLE_TELEMETRY=1
 
 # Mise
 eval "$(mise activate zsh --shims)"
