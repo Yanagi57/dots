@@ -1,8 +1,8 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/hr/.gtkrc-2.0.mine"
-gtk-theme-name="Adwaita"
+include "/home/yanagi/.gtkrc-2.0.mine"
+gtk-theme-name="Everforest-Yellow-Dark"
 gtk-icon-theme-name="Adwaita"
 gtk-font-name="Adwaita Sans 11"
 gtk-cursor-theme-name="default"
@@ -15,5 +15,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintslight"
+gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
