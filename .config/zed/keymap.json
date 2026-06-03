@@ -53,5 +53,89 @@
     "unbind": {
       "g .": "editor::ToggleCodeActions"
     }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "shift-find": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "!Editor && !Terminal",
+    "unbind": {
+      "space /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "!Editor && !Terminal",
+    "unbind": {
+      "g /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor",
+    "unbind": {
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "!Editor && !Terminal",
+    "unbind": {
+      "space f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "bindings": {
+      "s f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == helix_normal) && !menu",
+    "unbind": {
+      "s": "vim::Substitute"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space s /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "g /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+      "bindings": {
+      "space p v": "project_panel::Toggle"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "a": "vim::InsertAfter"
+    }
   }
 ]
