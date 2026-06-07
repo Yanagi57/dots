@@ -47,6 +47,13 @@ else
   echo "Skipping UFW (running inside a container/VM)"
 fi
 
+# Nvidia suspend/resume (fixes hyprlock crash + GL context loss after suspend)
+if lsmod | grep -q '^nvidia'; then
+    echo "==> Enabling nvidia suspend services..."
+    sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-hibernate.service
+    echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=2' | sudo tee /etc/modprobe.d/nvidia-power.conf
+fi
+
 # Paru
 if ! command -v paru &> /dev/null; then
     echo "==> Paru not found. Installing..."
