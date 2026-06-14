@@ -35,13 +35,13 @@ rustup component add rust-analyzer # For neovim
 
 # drivers
 sudo pacman -S --needed sof-firmware pipewire pipewire-audio pipewire-pulse libva-nvidia-driver ufw mesa xdg-desktop-portal-hyprland --noconfirm
-sudo systemctl enable ufw.service 
+sudo systemctl enable ufw.service
 
 if [ "$(systemd-detect-virt)" = "none" ]; then
   echo "Enabling UFW..."
-  sudo ufw default deny 
+  sudo ufw default deny
   sudo ufw allow from 192.168.0.0/24
-  sudo ufw limit ssh 
+  sudo ufw limit ssh
   sudo ufw enable
 else
   echo "Skipping UFW (running inside a container/VM)"
@@ -52,6 +52,7 @@ if lsmod | grep -q '^nvidia'; then
     echo "==> Enabling nvidia suspend services..."
     sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-hibernate.service
     echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=2' | sudo tee /etc/modprobe.d/nvidia-power.conf
+    sudo mkinitcpio -P
 fi
 
 # Paru
@@ -71,7 +72,7 @@ fi
 paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard ripgrep xh pavucontrol mpv awww blueman
 
 # Fonts & Text
-paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto noto-fonts noto-fonts-cjk ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git 
+paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto noto-fonts noto-fonts-cjk ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git
 
 # Required apps
 paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji python-gobject
