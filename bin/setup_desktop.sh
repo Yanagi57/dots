@@ -53,6 +53,16 @@ if lsmod | grep -q '^nvidia'; then
     sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-hibernate.service
     echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=2' | sudo tee /etc/modprobe.d/nvidia-power.conf
     sudo mkinitcpio -P
+
+    # Override nvidia-utils drop-in that disables user-session freeze on sleep.
+    # Without freeze, hyprlock crashes (SIGABRT in pthread_cond_clockwait) on long suspends.
+    # PreserveVideoMemoryAllocations=2 above lets nvidia tolerate frozen sessions.
+    for svc in suspend hibernate hybrid-sleep suspend-then-hibernate; do
+        sudo mkdir -p "/etc/systemd/system/systemd-${svc}.service.d"
+        printf '[Service]\nEnvironment=SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=true\n' \
+            | sudo tee "/etc/systemd/system/systemd-${svc}.service.d/20-restore-freeze.conf" >/dev/null
+    done
+    sudo systemctl daemon-reload
 fi
 
 # Paru
