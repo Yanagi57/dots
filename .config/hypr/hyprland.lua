@@ -43,6 +43,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("awww-daemon & awww img $HOME/.config/backgrounds/khaled-ali-unsplash.jpg")
     hl.exec_cmd("fcitx5 --replace -d")
 --    hl.exec_cmd("nm-applet")
+    hl.exec_cmd("flameshot")
 end)
 
 
