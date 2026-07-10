@@ -68,7 +68,7 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export KUBECONFIG="$XDG_CONFIG_HOME/kube" 
+export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
 
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
@@ -87,6 +87,9 @@ export LESS_TERMCAP_ue="$(printf '%b' '␛[0m')"
 
 export PATH="$PATH:$CARGO_HOME/bin"
 
+# Playwright
+export PLAYWRIGHT_BROWSERS_PATH="$XDG_STATE_HOME/pw-browsers"
+
 # Hugging Face
 [ -d "$XDG_CACHE_HOME/huggingface/hub" ] || mkdir -p "$XDG_CACHE_HOME/huggingface/hub"
 export HF_HOME="$XDG_CACHE_HOME/huggingface"
@@ -96,3 +99,4 @@ export HF_HUB_DISABLE_TELEMETRY=1
 
 # Mise
 eval "$(mise activate zsh --shims)"
+

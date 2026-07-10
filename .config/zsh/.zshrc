@@ -7,7 +7,6 @@ autoload -Uz prompt_purification; prompt_purification
 # ===== History =====
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE="$XDG_CACHE_HOME/zsh_history"
 export HISTCONTROL=ignoreboth  # ignore duplicates & commands starting with space
 
 # ===== PATH =====
@@ -81,5 +80,4 @@ eval "$(mise activate zsh)"
 
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
-alias work="ssh pi -t 'tmux attach -t work'"
-alias claude-pi="ssh pi -t 'tmux attach -t claude'"
+alias work="ssh pi -t 'bash -l -c herdr'"

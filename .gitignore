@@ -5,6 +5,8 @@
 .config/fcitx5/config
 .config/fcitx5/profile
 .config/systemd/**
+.config/rtk
+.config/unity3d
 .config/zsh/.zcompdump
 .config/Thunar/
 .config/claude/
