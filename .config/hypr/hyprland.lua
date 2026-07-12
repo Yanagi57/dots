@@ -51,6 +51,7 @@ end)
 -------------------------------
 
 hl.env("XCURSOR_SIZE",                 "10")
+hl.env("MOZ_ENABLE_WAYLAND",           "1")
 hl.env("HYPRCURSOR_SIZE",              "10")
 hl.env("HYPRSHOT_DIR",                 home .. "/screenshots")
 hl.env("QT_IM_MODULE",                 "fcitx")
