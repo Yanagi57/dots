@@ -7,6 +7,7 @@ autoload -Uz prompt_purification; prompt_purification
 # ===== History =====
 export HISTSIZE=10000
 export SAVEHIST=10000
+export HISTFILE="$XDG_CACHE_HOME/zsh/zsh-history"
 export HISTCONTROL=ignoreboth  # ignore duplicates & commands starting with space
 
 # ===== PATH =====
