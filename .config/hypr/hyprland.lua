@@ -28,7 +28,7 @@ hl.monitor({
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
-local browser     = "zen-browser"
+local browser     = "brave"
 local home        = os.getenv("HOME")
 
 

@@ -31,5 +31,6 @@
 .config/pavucontrol.ini
 .config/LM**
 .config/.lm**
+.config/Brave**
 bin/Config.toml
 .config/mpd/database

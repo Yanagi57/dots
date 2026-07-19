@@ -4,7 +4,7 @@ export VISUAL="nvim"
 export TERM="kitty"
 export TERMINAL="kitty"
 export MUSPLAYER="rmpc"
-export BROWSER="zen-browser"
+export BROWSER="brave"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
