@@ -34,3 +34,4 @@
 .config/Brave**
 bin/Config.toml
 .config/mpd/database
+.config/mozilla

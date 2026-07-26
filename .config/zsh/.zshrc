@@ -81,4 +81,4 @@ eval "$(mise activate zsh)"
 
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
-alias work="ssh pi -t 'bash -l -c herdr'"
+alias pi="ssh pi -t 'bash -l -c herdr'"
