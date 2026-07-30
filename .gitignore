@@ -35,3 +35,4 @@
 bin/Config.toml
 .config/mpd/database
 .config/mozilla
+.config/go
