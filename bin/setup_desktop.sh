@@ -85,7 +85,7 @@ paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard rip
 paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto noto-fonts noto-fonts-cjk ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git
 
 # Required apps
-paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji python-gobject
+paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji
 
 # Locale en_GB for waybar clock
 echo "en_GB.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen

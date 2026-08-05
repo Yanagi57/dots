@@ -11,7 +11,7 @@ export HISTFILE="$XDG_CACHE_HOME/zsh/zsh-history"
 export HISTCONTROL=ignoreboth  # ignore duplicates & commands starting with space
 
 # ===== PATH =====
-export PATH="$PATH:/home/$USER/apps:$XDG_DATA_HOME/npm/bin"
+export PATH="$PATH:/home/$USER/apps:$XDG_DATA_HOME/npm/bin:$(go env GOPATH)/bin"
 
 # ===== Plugins =====
 [ -f $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
