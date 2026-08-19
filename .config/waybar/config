@@ -8,7 +8,7 @@
 
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "battery", "pulseaudio", "bluetooth", "network", "custom/power_profile", "idle_inhibitor", "tray"],
+  "modules-right": ["custom/cpu_temp", "custom/nvidia_gpu_temp", "custom/nvme_temp", "cpu", "custom/nvidia_gpu", "memory", "battery", "pulseaudio", "bluetooth", "network", "custom/power_profile", "custom/notification", "idle_inhibitor", "tray"],
   "hyprland/workspaces": {
     "show-special": true
   },
@@ -110,6 +110,27 @@
     "return-type": "json",
     "interval": 5,
     "on-click": "~/.config/waybar/scripts/power-profile.sh --pick"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#FFD700'>󰂚</span>",
+      "none": "󰂜",
+      "dnd-notification": "<span foreground='#FFD700'>󰂛</span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "<span foreground='#FFD700'>󰂚</span>",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "<span foreground='#FFD700'>󰂛</span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "exec-if": "which swaync-client",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
   "tray": {

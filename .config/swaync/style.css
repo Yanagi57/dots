@@ -1,0 +1,196 @@
+/* Black & Gold theme for SwayNotificationCenter */
+
+@define-color base      #222222;
+@define-color surface   #2A2A2A;
+@define-color elevated  #333333;
+@define-color border    #3D3D3D;
+
+@define-color gold       #FFD700;
+@define-color gold-dim   #C9A800;
+@define-color teal       #4DD9C0;
+@define-color teal-dim   #2AA38E;
+
+@define-color text-primary   #F5F5F5;
+@define-color text-secondary #BBBBBB;
+@define-color text-tertiary  #777777;
+
+@define-color error   #FF5555;
+@define-color warning #FFB86C;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
+}
+
+/* ---- Notification popups ---- */
+
+.notification {
+  background: transparent;
+  margin: 6px 8px;
+}
+
+.notification-row {
+  background: transparent;
+}
+
+.notification-content {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0;
+}
+
+.notification.critical .notification-content {
+  border-color: @error;
+}
+
+.summary {
+  color: @text-primary;
+  font-weight: bold;
+}
+
+.time {
+  color: @text-tertiary;
+  font-size: 12px;
+}
+
+.body {
+  color: @text-secondary;
+}
+
+.notification-default-action,
+.notification-action {
+  background: transparent;
+  border: none;
+  color: @text-primary;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @elevated;
+}
+
+.notification-action {
+  border: 1px solid @border;
+  border-radius: 8px;
+  margin: 6px 4px 0 4px;
+  color: @gold;
+}
+
+.notification-action:hover {
+  background: @elevated;
+  border-color: @gold-dim;
+}
+
+/* close button on popup */
+.close-button {
+  background: transparent;
+  color: @text-tertiary;
+  border-radius: 6px;
+  margin: 4px;
+  padding: 2px;
+}
+
+.close-button:hover {
+  background: @error;
+  color: @base;
+}
+
+/* ---- Control center ---- */
+
+.control-center {
+  background: @base;
+  border: 1px solid @border;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.control-center .notification-row .notification-background .notification-content {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+}
+
+.widget-title {
+  color: @text-primary;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 4px 12px 4px;
+}
+
+.widget-title > button {
+  color: @base;
+  background: @gold;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+.widget-title > button:hover {
+  background: @gold-dim;
+}
+
+/* DND toggle */
+.widget-dnd {
+  color: @text-primary;
+  margin: 4px;
+  font-size: 14px;
+}
+
+.widget-dnd > switch {
+  background: @elevated;
+  border: 1px solid @border;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+  background: @gold;
+}
+
+.widget-dnd > switch slider {
+  background: @text-secondary;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @base;
+}
+
+/* MPRIS media player */
+.widget-mpris {
+  background: @surface;
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 4px;
+}
+
+.widget-mpris-player {
+  padding: 4px;
+}
+
+.widget-mpris-title {
+  color: @text-primary;
+  font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+  color: @teal;
+}
+
+.widget-mpris button {
+  background: transparent;
+  color: @gold;
+  border: none;
+}
+
+.widget-mpris button:hover {
+  background: @elevated;
+  border-radius: 6px;
+}
+
+.blank-window {
+  background: transparent;
+}

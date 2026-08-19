@@ -40,7 +40,7 @@ window#waybar {
 #custom-cpu_temp, #custom-nvidia_gpu, #custom-nvme_temp,
 #custom-nvidia_gpu_temp, #mpris, #bluetooth,
 #cpu, #memory, #battery, #pulseaudio, #network, #tray, #idle_inhibitor,
-#custom-power_profile {
+#custom-power_profile, #custom-notification {
   background: rgba(245,245,245,0.05);
   padding: 1px 7px;
   margin: 2px;
@@ -51,7 +51,8 @@ window#waybar {
 #custom-cpu_temp:hover, #custom-nvidia_gpu:hover, #custom-nvme_temp:hover,
 #custom-nvidia_gpu_temp:hover,#idle_inhibitor:hover,#bluetooth:hover,
 #cpu:hover, #memory:hover, #battery:hover,#mpris:hover,
-#pulseaudio:hover, #network:hover, #custom-power_profile:hover {
+#pulseaudio:hover, #network:hover, #custom-power_profile:hover,
+#custom-notification:hover {
   background: rgba(255,215,0,0.15);
   box-shadow: 0 0 8px rgba(255,215,0,0.3);
 }
