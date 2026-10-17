@@ -3,6 +3,7 @@ import Quickshell
 import QtQuick
 import qs.bar
 import qs.launcher
+import qs.powermenu
 
 ShellRoot {
     Variants {
@@ -11,4 +12,5 @@ ShellRoot {
     }
 
     Launcher {}
+    PowerMenu {}
 }

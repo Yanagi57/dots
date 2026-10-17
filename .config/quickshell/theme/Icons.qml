@@ -41,6 +41,14 @@ Singleton {
     readonly property string balanced: g(0xF0F85)
     readonly property string performance: g(0xF140B)
 
+    // power menu (looked up as Icons[action.id]) + bar button
+    readonly property string lock: g(0xF033E)
+    readonly property string logout: g(0xF0343)
+    readonly property string suspend: g(0xF0904)
+    readonly property string hibernate: g(0xF0717)
+    readonly property string reboot: g(0xF0709)
+    readonly property string shutdown: g(0xF0425)
+
     readonly property string play: "▶"
     readonly property string pause: g(0xF04C)
     readonly property string spotify: g(0xF1BC)

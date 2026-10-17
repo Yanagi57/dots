@@ -22,4 +22,9 @@ Island {
         baseColor: Caffeine.active ? Theme.gold : Theme.textSecondary
         onClicked: Caffeine.active = !Caffeine.active
     }
+
+    IconButton {
+        text: Icons.shutdown
+        onClicked: Panels.powerMenuRequested()
+    }
 }
