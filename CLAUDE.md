@@ -63,8 +63,8 @@ Map these roles to the palette above. No purple or pink anywhere.
 
 ## Apps to Theme
 
-- [ ] Neovim (fork Monokai Machine, swap purple tokens to gold)
-- [ ] Kitty
+- [x] Kitty
+- Neovim: staying on Everforest (not themed)
 - [x] Quickshell (bar, launcher, notifications, OSD, overview, switcher, power menu, lockscreen)
 
 ---
