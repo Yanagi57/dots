@@ -9,9 +9,9 @@ import qs.services
 import qs.widgets
 import "../lib/switcher.js" as Sw
 
-// Mac-style app switcher. Hyprland binds: Super+Tab → `switcher next`, Super+Shift+Tab →
-// `switcher prev`, Super release → `switcher commit`. We also commit on a Super key-release
-// seen by our own surface, in case the compositor's release bind doesn't fire.
+// Mac-style app switcher. Hyprland binds Super+Tab / Super+Shift+Tab to the global shortcuts
+// below; releasing Super is seen by our own surface (it takes keyboard focus while open) and
+// commits. IPC next/prev/commit remain for scripting.
 PanelWindow {
     id: root
 
@@ -68,7 +68,7 @@ PanelWindow {
         if (!open) return
         const app = apps[current]
         dismiss()
-        if (app) Compositor.focusWindow(app.address)
+        if (app) Compositor.afterLayerClosed("quickshell-switcher", () => Compositor.focusWindow(app.address))
     }
 
     function dismiss() { open = false }
@@ -81,6 +81,11 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: open ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
     WlrLayershell.namespace: "quickshell-switcher"
+
+    // Hyprland global shortcuts reach us instantly; `qs ipc call` spawns a whole process first,
+    // and on a quick tap Super was already released before the strip could take focus and see it.
+    GlobalShortcut { appid: "quickshell"; name: "switcher-next"; onPressed: root.advance(1) }
+    GlobalShortcut { appid: "quickshell"; name: "switcher-prev"; onPressed: root.advance(-1) }
 
     IpcHandler {
         target: "switcher"

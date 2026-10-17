@@ -40,12 +40,12 @@ PanelWindow {
 
     function goTo(id) {
         dismiss()
-        Compositor.focusWorkspace(id)
+        Compositor.afterLayerClosed("quickshell-overview", () => Compositor.focusWorkspace(id))
     }
 
     function focusWindow(address) {
         dismiss()
-        Compositor.focusWindow(address)
+        Compositor.afterLayerClosed("quickshell-overview", () => Compositor.focusWindow(address))
     }
 
     function moveWindow(address, id) { Compositor.moveWindow(address, id) }
@@ -71,7 +71,7 @@ PanelWindow {
         Behavior on opacity {
             NumberAnimation {
                 duration: Theme.animFast
-                onRunningChanged: if (!running && !root.open) root.visible = false
+                onRunningChanged: if (!running && !root.open) { root.visible = false }
             }
         }
 
