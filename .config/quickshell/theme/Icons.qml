@@ -57,4 +57,7 @@ Singleton {
     readonly property string previous: g(0xF04AE)
     readonly property string next: g(0xF04AD)
     readonly property string music: g(0xF075A)
+    readonly property string mic: g(0xF036C)
+    readonly property string micOff: g(0xF036D)
+    readonly property string brightness: g(0xF00DF)
 }
