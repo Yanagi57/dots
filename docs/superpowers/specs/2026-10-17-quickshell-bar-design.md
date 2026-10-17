@@ -34,13 +34,16 @@ in the repo until confirmed unneeded).
 .config/quickshell/
 ├── shell.qml              # entry; Variants over Quickshell.screens → one Bar per monitor
 ├── theme/
-│   ├── qmldir
 │   └── Theme.qml          # singleton: palette, font, radius, spacing, anim durations
 ├── services/              # singletons, data only, no UI
-│   ├── qmldir
 │   ├── Sensors.qml        # cpu/gpu/nvme temps, gpu utilisation
 │   ├── SystemStats.qml    # cpu %, memory
-│   └── PowerProfile.qml   # get/set power profile
+│   ├── PowerMode.qml      # get/set power profile
+│   ├── Net.qml            # wired / wifi summary
+│   ├── NotifBridge.qml    # swaync status + actions (temporary)
+│   └── Caffeine.qml       # idle-inhibit flag
+├── lib/                   # pure JS logic, unit-tested
+├── tests/                 # qmltestrunner tests, run.sh, smoke.sh
 ├── widgets/               # reusable UI: Island.qml, Popup.qml, Icon.qml
 └── bar/
     ├── Bar.qml            # PanelWindow, top layer, ~34px tall, islands style
@@ -93,9 +96,8 @@ fade + slide in ~150ms, close on outside click or Escape. Only one popup open at
 
 | Data | Source | Rate |
 |---|---|---|
-| CPU temp | `sensors k10temp-pci-00c3` (Tctl) via `Process` | 5 s |
+| CPU + NVMe temp | `sensors -j` (k10temp Tctl, nvme Composite) via `Process` | 5 s |
 | GPU temp, GPU util | `nvidia-smi --query-gpu=temperature.gpu,utilization.gpu --format=csv,noheader,nounits` | 5 s |
-| NVMe temp | `sensors nvme-pci-0200` (Composite) | 10 s |
 | CPU %, memory | `/proc/stat`, `/proc/meminfo` via `FileView` | 2 s |
 | Volume | `Quickshell.Services.Pipewire` | events |
 | Media | `Quickshell.Services.Mpris` | events |
