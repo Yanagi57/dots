@@ -40,5 +40,6 @@ PanelWindow {
         spacing: Theme.spacing
 
         SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
+        StatusIsland { id: statusIsland; onClicked: panel.toggle("quick") }
     }
 }
