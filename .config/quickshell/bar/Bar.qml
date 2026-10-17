@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.theme
+import qs.bar.islands
 
 PanelWindow {
     id: panel
@@ -20,6 +21,8 @@ PanelWindow {
         id: leftGroup
         anchors { left: parent.left; leftMargin: Theme.spacing; verticalCenter: parent.verticalCenter }
         spacing: Theme.spacing
+
+        WorkspacesIsland { screenName: panel.screen.name }
     }
 
     RowLayout {
