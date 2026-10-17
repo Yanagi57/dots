@@ -55,4 +55,5 @@ PanelWindow {
 
     CalendarPopup { bar: panel; anchorItem: clockIsland }
     SensorsPopup { bar: panel; anchorItem: systemIsland }
+    QuickSettingsPopup { bar: panel; anchorItem: statusIsland }
 }
