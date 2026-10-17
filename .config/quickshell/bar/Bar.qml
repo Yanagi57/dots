@@ -31,7 +31,7 @@ PanelWindow {
         spacing: Theme.spacing
 
         WorkspacesIsland { screenName: panel.screen.name }
-        MediaIsland {}
+        MediaIsland { id: mediaIsland; onPopupRequested: panel.toggle("media") }
     }
 
     RowLayout {
@@ -53,6 +53,7 @@ PanelWindow {
         TrayIsland { bar: panel }
     }
 
+    MediaPopup { bar: panel; anchorItem: mediaIsland }
     CalendarPopup { bar: panel; anchorItem: clockIsland }
     SensorsPopup { bar: panel; anchorItem: systemIsland }
     QuickSettingsPopup { bar: panel; anchorItem: statusIsland }

@@ -34,8 +34,6 @@ BarPopup {
             }
         }
 
-        MediaCard { Layout.fillWidth: true }
-
         StyledText {
             visible: Notifs.list.length === 0
             text: "No notifications"

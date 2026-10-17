@@ -60,4 +60,6 @@ Singleton {
     readonly property string mic: g(0xF036C)
     readonly property string micOff: g(0xF036D)
     readonly property string brightness: g(0xF00DF)
+    readonly property string chevronDown: g(0xF0140)
+    readonly property string chevronUp: g(0xF0143)
 }

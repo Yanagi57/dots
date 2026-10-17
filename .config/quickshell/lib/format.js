@@ -25,3 +25,11 @@ function level(list, fraction) {
 
 // Some APIs report 0..1, others 0..100; normalise to 0..100.
 function toPercent(v) { return v == null ? null : (v <= 1 ? v * 100 : v) }
+
+// Seconds → "m:ss" or "h:mm:ss".
+function duration(seconds) {
+    const t = Math.max(0, Math.floor(seconds))
+    const h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60
+    const ss = (s < 10 ? "0" : "") + s
+    return h > 0 ? h + ":" + (m < 10 ? "0" : "") + m + ":" + ss : m + ":" + ss
+}

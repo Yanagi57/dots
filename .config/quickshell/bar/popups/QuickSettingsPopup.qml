@@ -14,6 +14,9 @@ BarPopup {
     id: root
     name: "quick"
 
+    property bool wifiOpen: false
+    property bool bluetoothOpen: false
+
     readonly property var sink: Pipewire.defaultAudioSink
     readonly property var audio: sink ? sink.audio : null
     readonly property var adapter: Bluetooth.defaultAdapter
@@ -38,38 +41,12 @@ BarPopup {
                 onClicked: if (root.audio) root.audio.muted = !root.audio.muted
             }
 
-            Slider {
-                id: volume
+            StyledSlider {
                 Layout.preferredWidth: 220
                 from: 0
                 to: 1
                 value: root.audio ? root.audio.volume : 0
                 onMoved: if (root.audio) root.audio.volume = value
-
-                background: Rectangle {
-                    x: volume.leftPadding
-                    y: volume.topPadding + volume.availableHeight / 2 - height / 2
-                    width: volume.availableWidth
-                    height: 4
-                    radius: 2
-                    color: Theme.border
-
-                    Rectangle {
-                        width: volume.visualPosition * parent.width
-                        height: parent.height
-                        radius: 2
-                        color: Theme.gold
-                    }
-                }
-
-                handle: Rectangle {
-                    x: volume.leftPadding + volume.visualPosition * (volume.availableWidth - width)
-                    y: volume.topPadding + volume.availableHeight / 2 - height / 2
-                    width: 14
-                    height: 14
-                    radius: 7
-                    color: volume.pressed ? Theme.goldDim : Theme.gold
-                }
             }
 
             StyledText {
@@ -94,6 +71,50 @@ BarPopup {
                 checked: Networking.wifiEnabled
                 onClicked: Networking.wifiEnabled = !Networking.wifiEnabled
             }
+        }
+
+        // Wi-Fi networks
+        RowLayout {
+            visible: Net.wifiDevice !== null
+            Layout.fillWidth: true
+            StyledText {
+                text: "Wi-Fi networks"
+                color: Theme.textSecondary
+                font.pixelSize: Theme.fontSizeSmall
+                Layout.fillWidth: true
+            }
+            IconButton {
+                text: root.wifiOpen ? Icons.chevronUp : Icons.chevronDown
+                onClicked: root.wifiOpen = !root.wifiOpen
+            }
+        }
+        WifiList {
+            visible: root.wifiOpen && Net.wifiDevice !== null
+            active: visible && root.open
+            Layout.fillWidth: true
+            Layout.preferredWidth: 360
+        }
+
+        // Bluetooth devices
+        RowLayout {
+            visible: root.adapter !== null
+            Layout.fillWidth: true
+            StyledText {
+                text: "Bluetooth devices"
+                color: Theme.textSecondary
+                font.pixelSize: Theme.fontSizeSmall
+                Layout.fillWidth: true
+            }
+            IconButton {
+                text: root.bluetoothOpen ? Icons.chevronUp : Icons.chevronDown
+                onClicked: root.bluetoothOpen = !root.bluetoothOpen
+            }
+        }
+        BluetoothList {
+            visible: root.bluetoothOpen && root.adapter !== null
+            active: visible && root.open
+            Layout.fillWidth: true
+            Layout.preferredWidth: 360
         }
 
         // Power profile

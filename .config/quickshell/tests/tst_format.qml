@@ -31,6 +31,12 @@ TestCase {
         compare(Format.level(l, NaN), "a")
         compare(Format.level(l, undefined), "a")
     }
+    function test_duration() {
+        compare(Format.duration(0), "0:00")
+        compare(Format.duration(65.9), "1:05")
+        compare(Format.duration(3725), "1:02:05")
+        compare(Format.duration(-3), "0:00")
+    }
     function test_toPercent() {
         compare(Format.toPercent(0.62), 62)
         compare(Format.toPercent(62), 62)
