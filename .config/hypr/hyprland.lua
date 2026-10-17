@@ -202,7 +202,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + O", hl.dsp.layout("togglesplit"))
 
 -- Lock / logout
-hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
+hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.exec_cmd("qs ipc call powermenu toggle"))
 
 -- Screenshots

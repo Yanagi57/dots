@@ -8,6 +8,7 @@ import qs.notifications
 import qs.osd
 import qs.overview
 import qs.switcher
+import qs.lock
 
 ShellRoot {
     Variants {
@@ -21,4 +22,5 @@ ShellRoot {
     Osd {}
     Overview {}
     Switcher {}
+    Lock {}
 }
