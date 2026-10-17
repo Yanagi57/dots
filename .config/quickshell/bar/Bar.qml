@@ -23,6 +23,7 @@ PanelWindow {
         spacing: Theme.spacing
 
         WorkspacesIsland { screenName: panel.screen.name }
+        MediaIsland {}
     }
 
     RowLayout {
