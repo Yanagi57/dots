@@ -1,5 +1,6 @@
 import Quickshell.Services.SystemTray
 import QtQuick
+import QtQuick.Effects
 import qs.theme
 import qs.widgets
 
@@ -20,6 +21,14 @@ Island {
 
             source: modelData.icon
             sourceSize: Qt.size(16, 16)
+
+            // symbolic icons are drawn dark grey; tint them to fit the bar
+            layer.enabled: modelData.icon.indexOf("symbolic") !== -1
+            layer.effect: MultiEffect {
+                colorization: 1
+                colorizationColor: Theme.textSecondary
+                brightness: 1
+            }
 
             MouseArea {
                 anchors.fill: parent

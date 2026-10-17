@@ -3,9 +3,8 @@
 dir="$(cd "$(dirname "$0")/.." && pwd)"
 out="$(timeout 6 qs -p "$dir" --no-color 2>&1)"
 # quickshell.dbus.properties: external D-Bus services (e.g. playerctld with no player) — not our code
-# Could not load icon: a tray app advertises an icon name missing from the theme — external
 # quickshell.dbus.objectmanager org.bluez: bluetoothd not running — external, not our code
-if echo "$out" | grep -E 'WARN|ERROR' | grep -v 'quickshell.dbus.properties' | grep -v 'WARN: Could not load icon' | grep -v 'DBusObjectManagerInterface for "org.bluez"'; then
+if echo "$out" | grep -E 'WARN|ERROR' | grep -v 'quickshell.dbus.properties' | grep -v 'DBusObjectManagerInterface for "org.bluez"'; then
   echo "smoke FAILED"
   exit 1
 fi
