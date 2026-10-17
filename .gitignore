@@ -38,3 +38,4 @@ bin/Config.toml
 .config/go
 .config/heroic
 .config/obs**
+.superpowers/
