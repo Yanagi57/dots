@@ -10,10 +10,11 @@ import "../lib/notifs.js" as NotifLib
 Singleton {
     id: root
 
-    property bool dnd: false
+    // survive config reloads, like the server's history (keepOnReload)
+    property alias dnd: persist.dnd
+    property alias arrivals: persist.arrivals   // notification id → arrival time (ms), for "5m"
     property bool unread: false
     property var popups: []          // Notification objects, newest first, max 5
-    property var arrivals: ({})      // notification id → arrival time (ms), for "5m"
 
     readonly property var list: server.trackedNotifications.values.slice().reverse()
     // dismissed notifications drop out of `list` (and become null refs)
@@ -27,6 +28,13 @@ Singleton {
     function hidePopup(n) { popups = popups.filter(p => p !== n) }
     function clearAll() { for (const n of list) n.dismiss() }
     function markRead() { unread = false }
+
+    PersistentProperties {
+        id: persist
+        reloadableId: "notifs"
+        property bool dnd: false
+        property var arrivals: ({})
+    }
 
     NotificationServer {
         id: server
@@ -44,7 +52,7 @@ Singleton {
             root.arrivals = a
             root.unread = true
             if (!root.dnd || n.urgency === NotificationUrgency.Critical)
-                root.popups = [n].concat(root.popups).slice(0, 5)
+                root.popups = [n].concat(root.visiblePopups).slice(0, 5)
         }
     }
 }

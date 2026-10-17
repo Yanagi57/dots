@@ -19,6 +19,11 @@ TestCase {
         compare(N.ago(0, 2 * 86400000), "2d")
         compare(N.ago(5000, 0), "now")
     }
+    function test_stripImages() {
+        compare(N.stripImages('hi <img src="http://t.example/p.gif"> there'), "hi  there")
+        compare(N.stripImages('<b>a</b><IMG SRC=x/>b'), "<b>a</b>b")
+        compare(N.stripImages("plain"), "plain")
+    }
     function test_iconUrl() {
         compare(N.iconUrl("image://qsimage/1", "firefox"), "image://qsimage/1")
         compare(N.iconUrl("", "/usr/share/x.png"), "file:///usr/share/x.png")

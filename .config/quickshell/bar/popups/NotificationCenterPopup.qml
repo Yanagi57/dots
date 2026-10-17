@@ -10,7 +10,8 @@ BarPopup {
     id: root
     name: "notifications"
 
-    onOpenChanged: if (open) Notifs.markRead()
+    // also on close, so anything that arrived while it was open counts as seen
+    onOpenChanged: Notifs.markRead()
 
     SystemClock { id: clock; precision: SystemClock.Minutes }
 

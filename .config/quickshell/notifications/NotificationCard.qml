@@ -95,7 +95,7 @@ Rectangle {
 
             StyledText {
                 visible: text !== ""
-                text: root.notif.body
+                text: NotifLib.stripImages(root.notif.body)
                 textFormat: Text.StyledText
                 wrapMode: Text.Wrap
                 maximumLineCount: 3

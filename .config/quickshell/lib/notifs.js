@@ -25,3 +25,6 @@ function iconUrl(image, appIcon) {
     if (appIcon.indexOf("://") !== -1) return appIcon
     return ""
 }
+
+// Drop <img> tags from a body: Qt would fetch remote images (tracking pixels) and read local files.
+function stripImages(body) { return body.replace(/<img\b[^>]*>/gi, "") }
