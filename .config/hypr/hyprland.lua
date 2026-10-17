@@ -27,7 +27,7 @@ hl.monitor({
 
 local terminal    = "kitty"
 local fileManager = "thunar"
-local menu        = "wofi --show drun"
+local menu        = "qs ipc call launcher toggle apps"
 local browser     = "brave"
 local home        = os.getenv("HOME")
 
@@ -190,8 +190,8 @@ hl.bind(mainMod .. " + F",                 hl.dsp.window.float({ action = "toggl
 hl.bind(mainMod .. " + SHIFT + F",         hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd("hyprctl dispatch dpms off && sleep 1 && hyprctl dispatch dpms on"))
 hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("wofi-calc"))
-hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("wofi-emoji"))
+hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("qs ipc call launcher toggle calc"))
+hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("qs ipc call launcher toggle emoji"))
 hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("hyprctl dispatch cyclenext"))
 hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("qs kill; qs -d"))
 
