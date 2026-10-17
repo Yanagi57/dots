@@ -31,7 +31,8 @@ PopupWindow {
     HyprlandFocusGrab {
         // include the bar so clicking an island toggles instead of close+reopen
         windows: [root, root.bar]
-        active: root.visible
+        // follow `open`, not `visible`: a reopen during fade-out must re-arm the grab
+        active: root.open
         onCleared: if (root.open) root.close()
     }
 

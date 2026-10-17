@@ -89,6 +89,7 @@ BarPopup {
                 onClicked: root.adapter.enabled = !root.adapter.enabled
             }
             ToggleChip {
+                visible: Net.wifiDevice !== null
                 text: Icons.wifi + "  Wi-Fi"
                 checked: Networking.wifiEnabled
                 onClicked: Networking.wifiEnabled = !Networking.wifiEnabled

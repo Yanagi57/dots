@@ -29,7 +29,16 @@ BarPopup {
     ColumnLayout {
         spacing: Theme.spacing
 
-        WheelHandler { onWheel: e => root.shift(e.angleDelta.y > 0 ? -1 : 1) }
+        // one month per wheel notch (120); touchpads send many small deltas
+        WheelHandler {
+            property real accum: 0
+            onWheel: e => {
+                accum += e.angleDelta.y
+                if (Math.abs(accum) < 120) return
+                root.shift(accum > 0 ? -1 : 1)
+                accum = 0
+            }
+        }
 
         StyledText {
             text: Qt.formatDate(clock.date, "dddd, d MMMM yyyy")
