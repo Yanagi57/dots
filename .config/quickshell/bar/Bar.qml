@@ -30,6 +30,8 @@ PanelWindow {
         id: centerGroup
         anchors.centerIn: parent
         spacing: Theme.spacing
+
+        ClockIsland { id: clockIsland; onClicked: panel.toggle("calendar") }
     }
 
     RowLayout {
