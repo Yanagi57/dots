@@ -18,13 +18,15 @@ PanelWindow {
     property alias query: search.text
     readonly property var parsed: L.parseQuery(query)
     property var emojiEntries: []
-    readonly property var results: computeResults(parsed, Calc.result, AppUsage.usage)
+    readonly property var results: computeResults(parsed, Calc.resultFor, AppUsage.usage)
 
     function toggle(mode) {
         if (open) {
             dismiss()
             return
         }
+        // pick the monitor once; a live binding would move the window mid-typing
+        screen = Quickshell.screens.find(s => s.name === Hyprland.focusedMonitor?.name) ?? Quickshell.screens[0]
         query = L.prefixFor(mode)
         list.currentIndex = 0
         open = true
@@ -34,11 +36,12 @@ PanelWindow {
 
     function dismiss() { open = false }
 
-    // calcResult / usage are passed so the binding re-evaluates when they change
-    function computeResults(p, calcResult, usage) {
+    // calcFor / usage are passed so the binding re-evaluates when they change
+    function computeResults(p, calcFor, usage) {
         if (p.mode === "calc") {
-            return p.term !== "" && calcResult !== ""
-                ? [{ kind: "calc", title: calcResult, subtitle: "Enter to copy", icon: "=", payload: calcResult }]
+            // only show an answer computed for exactly what's typed now
+            return p.term !== "" && calcFor === p.term
+                ? [{ kind: "calc", title: Calc.result, subtitle: "Enter to copy", icon: "=", payload: Calc.result }]
                 : []
         }
         if (p.mode === "emoji") {
@@ -85,7 +88,6 @@ PanelWindow {
         e.accepted = true
     }
 
-    screen: Quickshell.screens.find(s => s.name === Hyprland.focusedMonitor?.name) ?? Quickshell.screens[0]
     visible: false
     color: "transparent"
     anchors { top: true; bottom: true; left: true; right: true }
