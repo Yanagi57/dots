@@ -38,7 +38,6 @@ local home        = os.getenv("HOME")
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("waybar > ~/.cache/waybar.log 2>&1")
     hl.exec_cmd("qs -d")
     hl.exec_cmd("hypridle")
     hl.exec_cmd("swaync")
@@ -194,7 +193,7 @@ hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("wofi-calc"))
 hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("wofi-emoji"))
 hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("hyprctl dispatch cyclenext"))
-hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("pkill waybar; waybar"))
+hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("qs kill; qs -d"))
 
 -- Dwindle
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
