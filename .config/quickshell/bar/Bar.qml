@@ -1,7 +1,9 @@
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 import qs.theme
+import qs.services
 import qs.bar.islands
 
 PanelWindow {
@@ -16,6 +18,11 @@ PanelWindow {
     anchors { top: true; left: true; right: true }
     implicitHeight: Theme.barHeight
     color: "transparent"
+
+    IdleInhibitor {
+        window: panel
+        enabled: Caffeine.active
+    }
 
     RowLayout {
         id: leftGroup
@@ -41,5 +48,6 @@ PanelWindow {
 
         SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
         StatusIsland { id: statusIsland; onClicked: panel.toggle("quick") }
+        TogglesIsland {}
     }
 }
