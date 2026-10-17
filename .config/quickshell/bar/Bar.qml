@@ -49,11 +49,12 @@ PanelWindow {
 
         SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
         StatusIsland { id: statusIsland; onClicked: panel.toggle("quick") }
-        TogglesIsland {}
+        TogglesIsland { id: togglesIsland; onNotificationsClicked: panel.toggle("notifications") }
         TrayIsland { bar: panel }
     }
 
     CalendarPopup { bar: panel; anchorItem: clockIsland }
     SensorsPopup { bar: panel; anchorItem: systemIsland }
     QuickSettingsPopup { bar: panel; anchorItem: statusIsland }
+    NotificationCenterPopup { bar: panel; anchorItem: togglesIsland }
 }

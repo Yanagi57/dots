@@ -4,6 +4,7 @@ import qs.services
 import qs.widgets
 
 Island {
+    signal notificationsClicked()
     hoverable: false
 
     IconButton {
@@ -12,9 +13,9 @@ Island {
     }
 
     IconButton {
-        text: NotifBridge.dnd ? Icons.bellDnd : NotifBridge.unread ? Icons.bell : Icons.bellIdle
-        baseColor: NotifBridge.unread ? Theme.gold : Theme.textSecondary
-        onClicked: m => m.button === Qt.RightButton ? NotifBridge.toggleDnd() : NotifBridge.toggleCenter()
+        text: Notifs.dnd ? Icons.bellDnd : Notifs.unread ? Icons.bell : Icons.bellIdle
+        baseColor: Notifs.unread ? Theme.gold : Theme.textSecondary
+        onClicked: m => m.button === Qt.RightButton ? (Notifs.dnd = !Notifs.dnd) : notificationsClicked()
     }
 
     IconButton {
