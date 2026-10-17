@@ -7,6 +7,7 @@ import qs.powermenu
 import qs.notifications
 import qs.osd
 import qs.overview
+import qs.switcher
 
 ShellRoot {
     Variants {
@@ -19,4 +20,5 @@ ShellRoot {
     NotificationPopups {}
     Osd {}
     Overview {}
+    Switcher {}
 }

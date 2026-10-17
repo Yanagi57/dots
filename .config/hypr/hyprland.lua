@@ -191,7 +191,10 @@ hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd([[hyprctl dispatch 'h
 hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("qs ipc call launcher toggle calc"))
 hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("qs ipc call launcher toggle emoji"))
-hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("qs ipc call overview toggle"))
+-- Mac-style app switcher: hold Super, tap Tab, release Super to switch
+hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("qs ipc call switcher next"))
+hl.bind(mainMod .. " + SHIFT + Tab",       hl.dsp.exec_cmd("qs ipc call switcher prev"))
+hl.bind(mainMod .. " + Super_L",           hl.dsp.exec_cmd("qs ipc call switcher commit"), { release = true })
 hl.bind(mainMod .. " + F1",                hl.dsp.exec_cmd("qs ipc call overview toggle"))
 hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("qs kill; qs -d"))
 
