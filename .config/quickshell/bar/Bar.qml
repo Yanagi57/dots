@@ -38,5 +38,7 @@ PanelWindow {
         id: rightGroup
         anchors { right: parent.right; rightMargin: Theme.spacing; verticalCenter: parent.verticalCenter }
         spacing: Theme.spacing
+
+        SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
     }
 }
