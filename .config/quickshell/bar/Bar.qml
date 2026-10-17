@@ -49,5 +49,6 @@ PanelWindow {
         SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
         StatusIsland { id: statusIsland; onClicked: panel.toggle("quick") }
         TogglesIsland {}
+        TrayIsland { bar: panel }
     }
 }
