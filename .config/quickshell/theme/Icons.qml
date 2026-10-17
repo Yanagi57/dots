@@ -53,4 +53,8 @@ Singleton {
     readonly property string pause: g(0xF04C)
     readonly property string spotify: g(0xF1BC)
     readonly property string firefox: g(0xF0239)
+    readonly property string close: "✕"
+    readonly property string previous: g(0xF04AE)
+    readonly property string next: g(0xF04AD)
+    readonly property string music: g(0xF075A)
 }
