@@ -4,6 +4,7 @@ import QtQuick
 import qs.bar
 import qs.launcher
 import qs.powermenu
+import qs.notifications
 
 ShellRoot {
     Variants {
@@ -13,4 +14,5 @@ ShellRoot {
 
     Launcher {}
     PowerMenu {}
+    NotificationPopups {}
 }
