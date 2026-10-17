@@ -55,7 +55,7 @@ PopupWindow {
             }
         }
 
-        Item {
+        FocusScope {
             id: body
             x: Theme.padding
             y: Theme.padding

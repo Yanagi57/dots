@@ -1,3 +1,4 @@
+import Quickshell
 import Quickshell.Bluetooth
 import QtQuick
 import QtQuick.Layouts
@@ -6,11 +7,12 @@ import qs.widgets
 import "../../lib/net.js" as NetLib
 import "../../lib/format.js" as Format
 
-// Paired and nearby Bluetooth devices. Click: connect / disconnect, or pair (then connect).
-// Discovers while `active`.
+// Paired and nearby Bluetooth devices. Click: connect / disconnect, or pair (then trust +
+// connect). Discovers while `active`.
 ColumnLayout {
     id: root
     property bool active: false
+    property var pairingDev: null    // the device the user asked to pair
 
     readonly property var adapter: Bluetooth.defaultAdapter
     readonly property var devices: adapter ? NetLib.sortDevices(adapter.devices.values) : []
@@ -19,8 +21,19 @@ ColumnLayout {
         if (d.connected) d.disconnect()
         else if (d.paired) d.connect()
         else {
-            d.trusted = true
+            pairingDev = d
             d.pair()
+        }
+    }
+
+    Connections {
+        target: root.pairingDev
+        function onPairedChanged() {
+            const d = root.pairingDev
+            if (!d.paired) return
+            root.pairingDev = null
+            d.trusted = true
+            d.connect()
         }
     }
 
@@ -41,7 +54,8 @@ ColumnLayout {
     }
 
     Repeater {
-        model: root.devices
+        // ScriptModel keeps rows alive across updates instead of rebuilding them all
+        model: ScriptModel { values: root.devices }
 
         Rectangle {
             id: row
@@ -58,12 +72,6 @@ ColumnLayout {
             implicitHeight: 34
             radius: 8
             color: area.containsMouse ? Theme.elevated : "transparent"
-
-            // finish what the click started: connect once pairing succeeds
-            Connections {
-                target: row.dev
-                function onPairedChanged() { if (row.dev.paired) row.dev.connect() }
-            }
 
             RowLayout {
                 anchors { fill: parent; leftMargin: 8; rightMargin: 8 }

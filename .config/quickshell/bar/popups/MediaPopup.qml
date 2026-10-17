@@ -18,7 +18,7 @@ BarPopup {
     Timer {
         interval: 1000
         repeat: true
-        running: root.open && root.player !== null && root.player.isPlaying
+        running: root.open && root.player !== null && root.player.isPlaying && !seek.pressed
         onTriggered: root.player.positionChanged()
     }
 
@@ -46,12 +46,15 @@ BarPopup {
                 Layout.preferredWidth: 48
             }
             StyledSlider {
+                id: seek
                 Layout.fillWidth: true
                 from: 0
                 to: root.hasLength ? root.player.length : 1
                 value: root.player ? root.player.position : 0
                 enabled: root.hasLength && root.player.canSeek
-                onMoved: root.player.position = value
+                // seek once on release, not on every mouse move
+                live: false
+                onPressedChanged: if (!pressed) root.player.position = valueAt(position)
             }
             StyledText {
                 text: Format.duration(root.hasLength ? root.player.length : 0)
