@@ -15,6 +15,3 @@ function workspaceForKey(text) {
     if (text.length !== 1 || text < "0" || text > "9") return -1
     return text === "0" ? 10 : Number(text)
 }
-
-// hyprctl wants "address:0x…"; Quickshell may give the address with or without the prefix.
-function hyprAddress(address) { return address.startsWith("0x") ? address : "0x" + address }

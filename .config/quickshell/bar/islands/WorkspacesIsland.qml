@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Hyprland
 import QtQuick
 import qs.theme
+import qs.services
 import qs.widgets
 import "../../lib/workspaces.js" as WS
 
@@ -17,7 +18,7 @@ Island {
     onWheel: w => {
         wheelAccum += w.angleDelta.y
         if (Math.abs(wheelAccum) < 120) return
-        Quickshell.execDetached(["hyprctl", "dispatch", "workspace", wheelAccum > 0 ? "m-1" : "m+1"])
+        Compositor.focusWorkspace(wheelAccum > 0 ? "m-1" : "m+1")
         wheelAccum = 0
     }
 

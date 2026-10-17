@@ -4,6 +4,7 @@ import Quickshell.Io
 import Quickshell.Wayland
 import QtQuick
 import qs.theme
+import qs.services
 import "../lib/grid.js" as Grid
 import "../lib/overview.js" as Ov
 
@@ -39,17 +40,15 @@ PanelWindow {
 
     function goTo(id) {
         dismiss()
-        Quickshell.execDetached(["hyprctl", "dispatch", "workspace", String(id)])
+        Compositor.focusWorkspace(id)
     }
 
     function focusWindow(address) {
         dismiss()
-        Quickshell.execDetached(["hyprctl", "dispatch", "focuswindow", "address:" + Ov.hyprAddress(address)])
+        Compositor.focusWindow(address)
     }
 
-    function moveWindow(address, id) {
-        Quickshell.execDetached(["hyprctl", "dispatch", "movetoworkspacesilent", id + ",address:" + Ov.hyprAddress(address)])
-    }
+    function moveWindow(address, id) { Compositor.moveWindow(address, id) }
 
     visible: false
     color: "transparent"

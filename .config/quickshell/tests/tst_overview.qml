@@ -17,10 +17,6 @@ TestCase {
         compare(Ov.workspaceForKey("a"), -1)
         compare(Ov.workspaceForKey(""), -1)
     }
-    function test_hyprAddress() {
-        compare(Ov.hyprAddress("55bdc0f35470"), "0x55bdc0f35470")
-        compare(Ov.hyprAddress("0x55bdc0f35470"), "0x55bdc0f35470")
-    }
     function test_gridMove() {
         compare(Grid.move(0, 1, 0, 5, 10), 1)
         compare(Grid.move(4, 1, 0, 5, 10), 4)

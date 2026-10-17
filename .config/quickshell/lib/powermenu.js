@@ -3,7 +3,7 @@
 // Power menu entries in grid order (3 columns). Icons are looked up as Icons[id].
 const actions = [
     { id: "lock", label: "Lock", key: "l", command: ["hyprlock"] },
-    { id: "logout", label: "Logout", key: "o", command: ["hyprctl", "dispatch", "exit"] },
+    { id: "logout", label: "Logout", key: "o", command: ["hyprctl", "dispatch", "hl.dsp.exit()"] },
     { id: "suspend", label: "Suspend", key: "u", command: ["systemctl", "suspend"] },
     { id: "hibernate", label: "Hibernate", key: "h", command: ["systemctl", "hibernate"] },
     { id: "reboot", label: "Reboot", key: "r", command: ["systemctl", "reboot"] },

@@ -187,11 +187,12 @@ hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.exit())
 hl.bind(mainMod .. " + E",                 hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F",                 hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F",         hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd("hyprctl dispatch dpms off && sleep 1 && hyprctl dispatch dpms on"))
+hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd([[hyprctl dispatch 'hl.dsp.dpms({ action = "off" })' && sleep 1 && hyprctl dispatch 'hl.dsp.dpms({ action = "on" })']]))
 hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("qs ipc call launcher toggle calc"))
 hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("qs ipc call launcher toggle emoji"))
 hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("qs ipc call overview toggle"))
+hl.bind(mainMod .. " + F1",                hl.dsp.exec_cmd("qs ipc call overview toggle"))
 hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("qs kill; qs -d"))
 
 -- Dwindle
@@ -230,8 +231,8 @@ hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through workspaces
-hl.bind(mainMod .. " + mouse_down", hl.dsp.exec_cmd("hyprctl dispatch workspace e+1"))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.exec_cmd("hyprctl dispatch workspace e-1"))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -246,8 +247,8 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl s 3%+ && qs ipc 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 3%- && qs ipc call osd brightness"),                          { locked = true, repeating = true })
 
 -- Lid switch
-hl.bind("switch:on:Lid Switch",  hl.dsp.exec_cmd("hyprctl dispatch dpms off"), { locked = true })
-hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("hyprctl dispatch dpms on"),  { locked = true })
+hl.bind("switch:on:Lid Switch",  hl.dsp.dpms({ action = "off" }), { locked = true })
+hl.bind("switch:off:Lid Switch", hl.dsp.dpms({ action = "on" }),  { locked = true })
 
 -- Media keys
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),        { locked = true })
