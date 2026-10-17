@@ -39,3 +39,4 @@ bin/Config.toml
 .config/heroic
 .config/obs**
 .superpowers/
+.config/VS*
