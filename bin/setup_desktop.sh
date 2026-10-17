@@ -8,7 +8,7 @@ read -p "This will install and configure your system. Proceed? (y/n) " confirm
 [[ "$confirm" == "y" ]] || exit 1
 
 # Install hyprland
-sudo pacman -S --needed hyprland wofi waybar libnotify ly kitty openssh thunar thunar-volman gvfs gvfs-mtp udisks2 stow rustup yazi --noconfirm
+sudo pacman -S --needed hyprland quickshell libnotify ly kitty openssh thunar thunar-volman gvfs gvfs-mtp udisks2 stow rustup yazi --noconfirm
 sudo pacman -S pacman-contrib # for paccache
 sudo systemctl enable ly@tty2.service
 # Redirect ly-session.log to cache
@@ -85,9 +85,12 @@ paru --needed --noconfirm -S bat zen-browser-bin neovim fzf zsh wl-clipboard rip
 paru --needed --noconfirm -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-emoji ttf-roboto noto-fonts noto-fonts-cjk ttf-jetbrains-mono-nerd ttf-firacode-nerd fcitx5-im fcitx5-rime fcitx5-skin-fluentdark-git
 
 # Required apps
-paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot swaync hyprlock hypridle nwg-look wlogout wofi-calc wofi-emoji
+paru --needed --noconfirm -S brightnessctl network-manager-applet btop fastfetch mission-center hyprshot hyprlock hypridle nwg-look
 
-# Locale en_GB for waybar clock
+# Quickshell runtime deps: launcher calc (qalc) + emoji typing (wtype), sensors, power profiles, battery
+sudo pacman -S --needed libqalculate wtype lm_sensors power-profiles-daemon upower --noconfirm
+
+# Locale en_GB (date formats)
 echo "en_GB.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
 sudo locale-gen
 

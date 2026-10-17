@@ -6,10 +6,8 @@ This directory contains the dotfiles for my system
 
 I use the [everforest](https://github.com/sainnhe/everforest) theme for all my applications that support themes.
 
-- Everforest for Waybar (.config/waybar)
 - Everforest for Kitty (.config/kitty)
 - Everforest for Neovim (.config/nvim/after/plugin/colors.lua)
-- Everforest for Wofi (.config/wofi/style.css)
 
 ## Setup for a New System
 
@@ -37,8 +35,7 @@ Here's a list of applications I use and their configurations can be found in thi
 - Kitty (with everforest theme)
 - Hyprland
 - Hyprpanel (with everforest theme)
-- Wlogout (with custom everforest theme)
-- Wofi (with custom everforest theme)
+- Quickshell (bar, launcher, notifications, OSD, overview, app switcher, power menu, lockscreen)
 
 ## Special Thanks
 
