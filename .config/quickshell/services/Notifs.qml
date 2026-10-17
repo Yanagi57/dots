@@ -23,8 +23,8 @@ Singleton {
     function urgencyName(u) {
         return u === NotificationUrgency.Critical ? "critical" : u === NotificationUrgency.Low ? "low" : "normal"
     }
-    // Quickshell reports expireTimeout in seconds
-    function timeoutFor(n) { return NotifLib.timeoutFor(urgencyName(n.urgency), n.expireTimeout * 1000) }
+    // expireTimeout arrives in ms, as sent (verified: notify-send -t 3000 → 3000)
+    function timeoutFor(n) { return NotifLib.timeoutFor(urgencyName(n.urgency), n.expireTimeout) }
     function hidePopup(n) { popups = popups.filter(p => p !== n) }
     function clearAll() { for (const n of list) n.dismiss() }
     function markRead() { unread = false }
