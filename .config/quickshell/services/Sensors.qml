@@ -33,7 +33,8 @@ Singleton {
                 root.nvmeTempHistory = History.push(root.nvmeTempHistory, r.nvme, root.historyLength)
             }
         }
-        onExited: code => { if (code !== 0) { root.cpuTemp = null; root.nvmeTemp = null } }
+        // no exit-code check: sensors exits non-zero when any unrelated chip (iwlwifi)
+        // fails to read, while still printing valid JSON for the chips we want
     }
 
     Process {
