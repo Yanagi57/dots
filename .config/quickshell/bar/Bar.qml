@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import qs.theme
 import qs.services
 import qs.bar.islands
+import qs.bar.popups
 
 PanelWindow {
     id: panel
@@ -51,4 +52,6 @@ PanelWindow {
         TogglesIsland {}
         TrayIsland { bar: panel }
     }
+
+    CalendarPopup { bar: panel; anchorItem: clockIsland }
 }
