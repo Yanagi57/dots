@@ -20,6 +20,7 @@ TestCase {
     function test_truncate() {
         compare(Format.truncate("abc", 30), "abc")
         compare(Format.truncate("abcdef", 4), "abc…")
+        compare(Format.truncate("ab\u{1F3B5}\u{1F3B5}x", 4), "ab\u{1F3B5}…")
     }
     function test_level() {
         const l = ["a", "b", "c"]
@@ -27,6 +28,8 @@ TestCase {
         compare(Format.level(l, 0.5), "b")
         compare(Format.level(l, 1), "c")
         compare(Format.level(l, 1.5), "c")
+        compare(Format.level(l, NaN), "a")
+        compare(Format.level(l, undefined), "a")
     }
     function test_toPercent() {
         compare(Format.toPercent(0.62), 62)

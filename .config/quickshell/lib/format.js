@@ -7,11 +7,19 @@ function percent(v) { return v == null ? "--" : Math.round(v) + "%" }
 
 function gib(v) { return v == null ? "--" : v.toFixed(1) + "G" }
 
-function truncate(s, max) { return s.length <= max ? s : s.slice(0, max - 1) + "…" }
+// Counts code points, so emoji and Nerd Font glyphs are never split.
+// (Qt's JS engine doesn't iterate strings by code point, so Array.from won't do.)
+function truncate(s, max) {
+    const chars = []
+    for (let i = 0; i < s.length; i += chars[chars.length - 1].length)
+        chars.push(String.fromCodePoint(s.codePointAt(i)))
+    return chars.length <= max ? s : chars.slice(0, max - 1).join("") + "…"
+}
 
 // Pick an entry from an ordered icon list using a 0..1 fraction (volume, battery).
 function level(list, fraction) {
-    const i = Math.floor(Math.max(0, Math.min(1, fraction)) * list.length)
+    const f = Number.isFinite(fraction) ? fraction : 0
+    const i = Math.floor(Math.max(0, Math.min(1, f)) * list.length)
     return list[Math.min(i, list.length - 1)]
 }
 
