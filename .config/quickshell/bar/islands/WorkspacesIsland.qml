@@ -10,8 +10,16 @@ Island {
     id: root
     required property string screenName
 
+    // Touchpads send many small deltas; switch once per mouse-wheel notch (120).
+    property real wheelAccum: 0
+
     hoverable: false
-    onWheel: w => Quickshell.execDetached(["hyprctl", "dispatch", "workspace", w.angleDelta.y > 0 ? "m-1" : "m+1"])
+    onWheel: w => {
+        wheelAccum += w.angleDelta.y
+        if (Math.abs(wheelAccum) < 120) return
+        Quickshell.execDetached(["hyprctl", "dispatch", "workspace", wheelAccum > 0 ? "m-1" : "m+1"])
+        wheelAccum = 0
+    }
 
     Repeater {
         model: WS.visible(Hyprland.workspaces.values, root.screenName)
