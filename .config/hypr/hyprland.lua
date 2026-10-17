@@ -191,7 +191,7 @@ hl.bind(mainMod .. " + SHIFT + D",         hl.dsp.exec_cmd("hyprctl dispatch dpm
 hl.bind(mainMod .. " + Space",             hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C",                 hl.dsp.exec_cmd("qs ipc call launcher toggle calc"))
 hl.bind(mainMod .. " + M",                 hl.dsp.exec_cmd("qs ipc call launcher toggle emoji"))
-hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("hyprctl dispatch cyclenext"))
+hl.bind(mainMod .. " + Tab",               hl.dsp.exec_cmd("qs ipc call overview toggle"))
 hl.bind(mainMod .. " + SHIFT + W",         hl.dsp.exec_cmd("qs kill; qs -d"))
 
 -- Dwindle

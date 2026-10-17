@@ -20,12 +20,4 @@ TestCase {
         compare(PM.labelParts(PM.actions[1]), { before: "L", key: "o", after: "gout" })
         compare(PM.labelParts(PM.actions[2]), { before: "S", key: "u", after: "spend" })
     }
-    function test_move() {
-        compare(PM.move(0, 1, 0, 3, 6), 1)
-        compare(PM.move(2, 1, 0, 3, 6), 2)
-        compare(PM.move(0, 0, 1, 3, 6), 3)
-        compare(PM.move(4, 0, 1, 3, 6), 4)
-        compare(PM.move(0, -1, 0, 3, 6), 0)
-        compare(PM.move(3, 0, -1, 3, 6), 0)
-    }
 }

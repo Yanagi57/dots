@@ -6,6 +6,7 @@ import QtQuick
 import qs.theme
 import qs.services
 import "../lib/powermenu.js" as PM
+import "../lib/grid.js" as Grid
 
 // Lock / logout / suspend / hibernate / reboot / shutdown.
 // Opened with `qs ipc call powermenu toggle` or the bar's power button.
@@ -101,10 +102,10 @@ PanelWindow {
         focus: true
         Keys.onPressed: e => {
             if (e.key === Qt.Key_Escape) root.dismiss()
-            else if (e.key === Qt.Key_Left) root.current = PM.move(root.current, -1, 0, root.columns, PM.actions.length)
-            else if (e.key === Qt.Key_Right) root.current = PM.move(root.current, 1, 0, root.columns, PM.actions.length)
-            else if (e.key === Qt.Key_Up) root.current = PM.move(root.current, 0, -1, root.columns, PM.actions.length)
-            else if (e.key === Qt.Key_Down) root.current = PM.move(root.current, 0, 1, root.columns, PM.actions.length)
+            else if (e.key === Qt.Key_Left) root.current = Grid.move(root.current, -1, 0, root.columns, PM.actions.length)
+            else if (e.key === Qt.Key_Right) root.current = Grid.move(root.current, 1, 0, root.columns, PM.actions.length)
+            else if (e.key === Qt.Key_Up) root.current = Grid.move(root.current, 0, -1, root.columns, PM.actions.length)
+            else if (e.key === Qt.Key_Down) root.current = Grid.move(root.current, 0, 1, root.columns, PM.actions.length)
             else if (e.key === Qt.Key_Return || e.key === Qt.Key_Enter) root.run(root.current)
             else if (PM.indexForKey(e.text) >= 0) root.run(PM.indexForKey(e.text))
             else return

@@ -6,6 +6,7 @@ import qs.launcher
 import qs.powermenu
 import qs.notifications
 import qs.osd
+import qs.overview
 
 ShellRoot {
     Variants {
@@ -17,4 +18,5 @@ ShellRoot {
     PowerMenu {}
     NotificationPopups {}
     Osd {}
+    Overview {}
 }
