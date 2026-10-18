@@ -1,4 +1,6 @@
 //@ pragma IconTheme Adwaita
+// tray menus (SystemTrayItem.display) are native Qt menus and need a QApplication
+//@ pragma UseQApplication
 import Quickshell
 import QtQuick
 import qs.bar
