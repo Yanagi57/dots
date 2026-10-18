@@ -22,6 +22,11 @@ Rectangle {
     readonly property var buttons: notif.actions.filter(a => a.identifier !== "default")
     readonly property string iconSource: NotifLib.iconUrl(notif.image, notif.appIcon)
         || (notif.appIcon !== "" ? Quickshell.iconPath(notif.appIcon, true) : "")
+    // local image files (screenshots) get a large preview; the small slot then shows the app icon
+    readonly property string previewSource: NotifLib.isPreview(iconSource) ? iconSource : ""
+    readonly property string smallIcon: previewSource === "" ? iconSource
+        : notif.appIcon !== "" && NotifLib.iconUrl("", notif.appIcon) === "" ? Quickshell.iconPath(notif.appIcon, true)
+        : ""
 
     implicitWidth: 400
     implicitHeight: content.implicitHeight + 2 * Theme.padding
@@ -62,8 +67,8 @@ Rectangle {
 
         IconImage {
             Layout.alignment: Qt.AlignTop
-            visible: root.iconSource !== ""
-            source: root.iconSource
+            visible: root.smallIcon !== ""
+            source: root.smallIcon
             implicitSize: 36
         }
 
@@ -104,6 +109,27 @@ Rectangle {
                 linkColor: Theme.teal
                 Layout.fillWidth: true
                 onLinkActivated: link => Qt.openUrlExternally(link)
+            }
+
+            ClippingRectangle {
+                visible: root.previewSource !== ""
+                Layout.fillWidth: true
+                Layout.topMargin: 6
+                // keep the image's aspect ratio, capped at 180 px tall
+                Layout.preferredHeight: visible
+                    ? Math.min(180, width * (preview.implicitWidth > 0 ? preview.implicitHeight / preview.implicitWidth : 0.5625))
+                    : 0
+                radius: 8
+                color: Theme.base
+
+                Image {
+                    id: preview
+                    anchors.fill: parent
+                    source: root.previewSource
+                    fillMode: Image.PreserveAspectFit
+                    asynchronous: true
+                    sourceSize.width: 720
+                }
             }
 
             Flow {

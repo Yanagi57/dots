@@ -24,6 +24,12 @@ TestCase {
         compare(N.stripImages('<b>a</b><IMG SRC=x/>b'), "<b>a</b>b")
         compare(N.stripImages("plain"), "plain")
     }
+    function test_isPreview() {
+        compare(N.isPreview("file:///home/u/shot.png"), true)
+        compare(N.isPreview("image://qsimage/12"), false)
+        compare(N.isPreview("image://icon/firefox"), false)
+        compare(N.isPreview(""), false)
+    }
     function test_iconUrl() {
         compare(N.iconUrl("image://qsimage/1", "firefox"), "image://qsimage/1")
         compare(N.iconUrl("", "/usr/share/x.png"), "file:///usr/share/x.png")

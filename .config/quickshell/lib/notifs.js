@@ -38,3 +38,7 @@ function iconUrl(image, appIcon) {
 
 // Drop <img> tags from a body: Qt would fetch remote images (tracking pixels) and read local files.
 function stripImages(body) { return body.replace(/<img\b[^>]*>/gi, "") }
+
+// Local image files (screenshots etc.) get a large preview; app-supplied image data
+// (avatars, album art blobs) and theme icons stay small.
+function isPreview(url) { return url.startsWith("file://") }
