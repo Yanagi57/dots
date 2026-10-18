@@ -62,4 +62,6 @@ Singleton {
     readonly property string brightness: g(0xF00DF)
     readonly property string chevronDown: g(0xF0140)
     readonly property string chevronUp: g(0xF0143)
+    readonly property string check: "\u2713"
+    readonly property string radio: "\u25CF"
 }

@@ -15,6 +15,18 @@ PanelWindow {
     property string openPopup: ""
     function toggle(name) { openPopup = openPopup === name ? "" : name }
 
+    // tray menu: which item's menu, anchored under which icon
+    property var trayItem: null
+    property Item trayAnchor: null
+    function openTrayMenu(item, anchor) {
+        const same = openPopup === "tray" && trayItem === item
+        openPopup = ""
+        if (same) return
+        trayItem = item
+        trayAnchor = anchor
+        Qt.callLater(() => openPopup = "tray")
+    }
+
     screen: modelData
     anchors { top: true; left: true; right: true }
     implicitHeight: Theme.barHeight
@@ -50,7 +62,7 @@ PanelWindow {
         SystemIsland { id: systemIsland; onClicked: panel.toggle("sensors") }
         StatusIsland { id: statusIsland; onClicked: panel.toggle("quick") }
         TogglesIsland { id: togglesIsland; onNotificationsClicked: panel.toggle("notifications") }
-        TrayIsland { bar: panel }
+        TrayIsland { id: trayIsland; onMenuRequested: (item, anchor) => panel.openTrayMenu(item, anchor) }
     }
 
     MediaPopup { bar: panel; anchorItem: mediaIsland }
@@ -58,4 +70,5 @@ PanelWindow {
     SensorsPopup { bar: panel; anchorItem: systemIsland }
     QuickSettingsPopup { bar: panel; anchorItem: statusIsland }
     NotificationCenterPopup { bar: panel; anchorItem: togglesIsland }
+    TrayMenuPopup { bar: panel; anchorItem: panel.trayAnchor ?? trayIsland; menu: panel.trayItem ? panel.trayItem.menu : null }
 }

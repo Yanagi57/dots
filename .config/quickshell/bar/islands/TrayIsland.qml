@@ -4,10 +4,10 @@ import QtQuick.Effects
 import qs.theme
 import qs.widgets
 
-// Left click: activate (or menu for menu-only items). Right click: menu.
+// Left click: activate (or menu for menu-only items). Right click: menu (TrayMenuPopup, via Bar).
 Island {
     id: root
-    required property var bar
+    signal menuRequested(var item, Item anchor)
 
     hoverable: false
     visible: SystemTray.items.values.length > 0
@@ -40,9 +40,7 @@ Island {
                         item.activate()
                         return
                     }
-                    if (!item.hasMenu) return
-                    const p = trayIcon.mapToItem(null, 0, trayIcon.height + 6)
-                    item.display(root.bar, p.x, p.y)
+                    if (item.hasMenu) root.menuRequested(item, trayIcon)
                 }
             }
         }
