@@ -30,5 +30,9 @@ TestCase {
         compare(N.iconUrl("", "file:///a.png"), "file:///a.png")
         compare(N.iconUrl("", "firefox"), "")
         compare(N.iconUrl("", ""), "")
+        // Quickshell wraps the image-path hint as an icon lookup, even for file paths
+        compare(N.iconUrl("image://icon//home/u/shot.png", ""), "file:///home/u/shot.png")
+        compare(N.iconUrl("image://icon/file:///home/u/shot.png", ""), "file:///home/u/shot.png")
+        compare(N.iconUrl("image://icon/dialog-information", ""), "image://icon/dialog-information")
     }
 }

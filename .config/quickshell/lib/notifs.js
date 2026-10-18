@@ -20,7 +20,17 @@ function ago(thenMs, nowMs) {
 // Image URL for a notification: its own image, else an app icon given as a path or URL.
 // "" means: look `appIcon` up as an icon-theme name instead.
 function iconUrl(image, appIcon) {
-    if (image) return image
+    if (image) {
+        // Quickshell turns the image-path hint into an icon-theme lookup, even when it is a
+        // file path (notify-send -i /path.png, e.g. hyprshot); load those as files instead
+        const prefix = "image://icon/"
+        if (image.startsWith(prefix)) {
+            const inner = image.slice(prefix.length)
+            if (inner.startsWith("/")) return "file://" + inner
+            if (inner.startsWith("file://")) return inner
+        }
+        return image
+    }
     if (appIcon.startsWith("/")) return "file://" + appIcon
     if (appIcon.indexOf("://") !== -1) return appIcon
     return ""
