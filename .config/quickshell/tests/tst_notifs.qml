@@ -30,6 +30,13 @@ TestCase {
         compare(N.isPreview("image://icon/firefox"), false)
         compare(N.isPreview(""), false)
     }
+    function test_isSquare() {
+        compare(N.isSquare(160, 160), true)
+        compare(N.isSquare(640, 620), true)
+        compare(N.isSquare(1920, 1080), false)
+        compare(N.isSquare(400, 900), false)
+        compare(N.isSquare(0, 0), false)
+    }
     function test_iconUrl() {
         compare(N.iconUrl("image://qsimage/1", "firefox"), "image://qsimage/1")
         compare(N.iconUrl("", "/usr/share/x.png"), "file:///usr/share/x.png")

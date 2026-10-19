@@ -22,11 +22,17 @@ Rectangle {
     readonly property var buttons: notif.actions.filter(a => a.identifier !== "default")
     readonly property string iconSource: NotifLib.iconUrl(notif.image, notif.appIcon)
         || (notif.appIcon !== "" ? Quickshell.iconPath(notif.appIcon, true) : "")
-    // local image files (screenshots) get a large preview; the small slot then shows the app icon
+    // local image files are preview candidates: non-square ones (screenshots) get a large
+    // preview and the small slot shows the app icon; square ones (chat avatars) stay small
     readonly property string previewSource: NotifLib.isPreview(iconSource) ? iconSource : ""
+    readonly property bool previewSquare: NotifLib.isSquare(preview.implicitWidth, preview.implicitHeight)
+    readonly property bool showPreview: previewSource !== "" && preview.status === Image.Ready && !previewSquare
+    readonly property string appIconPath: notif.appIcon !== "" && NotifLib.iconUrl("", notif.appIcon) === ""
+        ? Quickshell.iconPath(notif.appIcon, true) : ""
     readonly property string smallIcon: previewSource === "" ? iconSource
-        : notif.appIcon !== "" && NotifLib.iconUrl("", notif.appIcon) === "" ? Quickshell.iconPath(notif.appIcon, true)
-        : ""
+        : preview.status === Image.Loading ? ""
+        : preview.status === Image.Ready && previewSquare ? iconSource
+        : appIconPath
 
     implicitWidth: 400
     implicitHeight: content.implicitHeight + 2 * Theme.padding
@@ -112,7 +118,7 @@ Rectangle {
             }
 
             ClippingRectangle {
-                visible: root.previewSource !== ""
+                visible: root.showPreview
                 Layout.fillWidth: true
                 Layout.topMargin: 6
                 // keep the image's aspect ratio, capped at 180 px tall

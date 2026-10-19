@@ -39,6 +39,10 @@ function iconUrl(image, appIcon) {
 // Drop <img> tags from a body: Qt would fetch remote images (tracking pixels) and read local files.
 function stripImages(body) { return body.replace(/<img\b[^>]*>/gi, "") }
 
-// Local image files (screenshots etc.) get a large preview; app-supplied image data
-// (avatars, album art blobs) and theme icons stay small.
+// Local image files (screenshots etc.) are preview candidates; app-supplied image data
+// and theme icons stay small.
 function isPreview(url) { return url.startsWith("file://") }
+
+// Square-ish images (chat avatars, album art) belong in the small icon slot even when
+// sent as files; only other shapes (screenshots) get the large preview.
+function isSquare(w, h) { return w > 0 && h > 0 && Math.abs(w - h) <= 0.05 * Math.max(w, h) }
